@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <Button
+            android:id="@+id/btn_confirmation_confirm"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_NORMAL"
+            android:layout_marginEnd="@dimen/margin_NORMAL"
+            android:layout_marginBottom="@dimen/margin_NORMAL"
+            android:text="@string/confirmation_confirmbtn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_confirmation_totalamount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_NORMAL"
+            android:layout_marginEnd="@dimen/margin_NORMAL"
+            android:layout_marginBottom="@dimen/margin_NORMAL"
+            android:text="TextView"
+            app:layout_constraintBottom_toTopOf="@+id/btn_confirmation_confirm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_NORMAL"
+            android:layout_marginTop="@dimen/margin_NORMAL"
+            android:layout_marginEnd="@dimen/margin_NORMAL"
+            android:layout_marginBottom="@dimen/margin_NORMAL"
+            app:layout_constraintBottom_toTopOf="@+id/tv_confirmation_totalamount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

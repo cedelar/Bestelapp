@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_welcomemsg"
+            app:layout_constraintBottom_toTopOf="@+id/guideline3"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="@fraction/frac_banner_top" />
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_NORMAL"
+            android:layout_marginTop="@dimen/margin_NORMAL"
+            android:layout_marginEnd="@dimen/margin_NORMAL"
+            android:layout_marginBottom="@dimen/margin_XL"
+            android:contentDescription="@string/title_bannerdesc"
+            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/banner" />
+
+        <Button
+            android:id="@+id/btn_title_order"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_XL"
+            android:layout_marginTop="@dimen/margin_XL"
+            android:layout_marginEnd="@dimen/margin_XL"
+            android:layout_marginBottom="@dimen/margin_NORMAL"
+            android:text="@string/orderlist_orderbtn"
+            app:layout_constraintBottom_toTopOf="@+id/btn_title_qr"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/guideline3" />
+
+        <Button
+            android:id="@+id/btn_title_qr"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_XL"
+            android:layout_marginEnd="@dimen/margin_XL"
+            android:text="@string/title_qrbtn"
+            app:layout_constraintBottom_toTopOf="@+id/btn_title_sponsor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_title_order" />
+
+        <Button
+            android:id="@+id/btn_title_sponsor"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_XL"
+            android:layout_marginTop="@dimen/margin_NORMAL"
+            android:layout_marginEnd="@dimen/margin_XL"
+            android:layout_marginBottom="@dimen/margin_XL"
+            android:text="@string/title_sponsorbtn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_title_qr" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/guideline3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="@fraction/frac_buttonchain_bottom" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

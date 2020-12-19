@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/navigation"
+    app:startDestination="@id/titleFragment">
+    <fragment
+        android:id="@+id/titleFragment"
+        android:name="com.example.bestelapp.ui.TitleFragment"
+        android:label="TitleFragment"
+        tools:layout="@layout/fragment_title">
+        <action
+            android:id="@+id/action_titleFragment_to_orderlistFragment"
+            app:destination="@id/orderlistFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/orderlistFragment"
+        android:name="com.example.bestelapp.ui.OrderlistFragment"
+        android:label="OrderlistFragment"
+        tools:layout="@layout/fragment_orderlist">
+        <action
+            android:id="@+id/action_orderlistFragment_to_confirmationFragment"
+            app:destination="@id/confirmationFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/confirmationFragment"
+        android:name="com.example.bestelapp.ui.ConfirmationFragment"
+        android:label="ConfirmationFragment"
+        tools:layout="@layout/fragment_confirmation">
+        <action
+            android:id="@+id/action_confirmationFragment_to_ordersuccesFragment"
+            app:destination="@id/ordersuccesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/ordersuccesFragment"
+        android:name="com.example.bestelapp.ui.OrdersuccesFragment"
+        android:label="OrdersuccesFragment"
+        tools:layout="@layout/fragment_ordersucces">
+        <action
+            android:id="@+id/action_ordersuccesFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
+    </fragment>
+</navigation>

@@ -1,4 +1,4 @@
-package com.example.bestelapp.persistence.product
+package com.example.bestelapp.data.product
 
 import android.content.Context
 import androidx.room.Database

@@ -1,11 +1,10 @@
-package com.example.bestelapp.persistence.product
+package com.example.bestelapp.data.product
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
 import androidx.room.Update
-import com.example.bestelapp.persistence.product.Product
 
 @Dao
 interface ProductDatabaseDao {
@@ -20,5 +19,5 @@ interface ProductDatabaseDao {
     fun get(key: Long): Product?
 
     @Query("SELECT * FROM product_table ORDER BY product_category")
-    fun getAllNights(): LiveData<List<Product>>
+    fun getAllProducts(): LiveData<List<Product>>
 }

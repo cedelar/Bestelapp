@@ -12,6 +12,12 @@
         <action
             android:id="@+id/action_titleFragment_to_orderlistFragment"
             app:destination="@id/orderlistFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_qrFragment"
+            app:destination="@id/qrFragment" />
+        <action
+            android:id="@+id/action_titleFragment_to_sponsorFragment"
+            app:destination="@id/sponsorFragment" />
     </fragment>
     <fragment
         android:id="@+id/orderlistFragment"
@@ -38,6 +44,26 @@
         tools:layout="@layout/fragment_ordersucces">
         <action
             android:id="@+id/action_ordersuccesFragment_to_titleFragment"
+            app:destination="@id/titleFragment"
+            app:popUpTo="@id/titleFragment"
+            app:popUpToInclusive="true" />
+    </fragment>
+    <fragment
+        android:id="@+id/qrFragment"
+        android:name="com.example.bestelapp.fragments.qr.QrFragment"
+        android:label="QrFragment"
+        tools:layout="@layout/fragment_qr">
+        <action
+            android:id="@+id/action_qrFragment_to_titleFragment"
+            app:destination="@id/titleFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/sponsorFragment"
+        android:name="com.example.bestelapp.fragments.sponsor.SponsorFragment"
+        android:label="SponsorFragment"
+        tools:layout="@layout/fragment_sponsor">
+        <action
+            android:id="@+id/action_sponsorFragment_to_titleFragment"
             app:destination="@id/titleFragment" />
     </fragment>
 </navigation>

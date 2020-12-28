@@ -2,6 +2,8 @@ package com.example.bestelapp.fragments.orderlist
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.example.bestelapp.data.product.ProductDataProvider
 import com.example.bestelapp.data.product.ProductDatabaseDao
@@ -18,13 +20,23 @@ class OrderlistViewModel(
     //TODO
     val confirmButtonVisible = true
 
-    fun handleConfirmButton(){
-        //TODO
+    init {
+
     }
 
-    init {
-        Timber.i("Pr:" + products.value?.size)
+    // Navigation
+    private var _navigateToConfirmation = MutableLiveData<Boolean>()
 
+    val navigateToConfirmation: LiveData<Boolean>
+        get() = _navigateToConfirmation
+
+    fun onConfirmClicked(){
+        //TODO: Inputvalidation
+        _navigateToConfirmation.value = true
+    }
+
+    fun doneNavigating(){
+        _navigateToConfirmation.value = false
     }
 
 }

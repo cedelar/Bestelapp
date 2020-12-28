@@ -36,7 +36,7 @@
             android:layout_marginEnd="@dimen/margin_NORMAL"
             android:layout_marginBottom="@dimen/margin_SMALL"
             android:enabled="@{orderListViewModel.confirmButtonVisible}"
-            android:onClick="@{() -> orderListViewModel.handleConfirmButton()}"
+            android:onClick="@{() -> orderListViewModel.onConfirmClicked()}"
             android:text="@string/orderlist_orderbtn"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

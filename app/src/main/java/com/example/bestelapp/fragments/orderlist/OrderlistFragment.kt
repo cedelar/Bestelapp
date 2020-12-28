@@ -9,6 +9,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.navigation.fragment.findNavController
 import com.example.bestelapp.R
 import com.example.bestelapp.data.product.ProductDatabase
 import com.example.bestelapp.databinding.FragmentOrderlistBinding
@@ -19,7 +20,7 @@ class OrderlistFragment: Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
                               savedInstanceState: Bundle?): View? {
 
-        // Databinding
+        // Value init
         val binding: FragmentOrderlistBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_orderlist, container, false)
         val application = requireNotNull(this.activity).application
         val dataSource = ProductDatabase.getInstance(application).productDatabaseDao
@@ -27,19 +28,24 @@ class OrderlistFragment: Fragment() {
         val orderlistViewModel =
             ViewModelProvider(
                 this, viewModelFactory).get(OrderlistViewModel::class.java)
+        val adapter = ProductAdapter()
+
+        // Databinding
         binding.orderListViewModel = orderlistViewModel
         binding.lifecycleOwner = this
+        binding.rvOrderlistShoworders.adapter = adapter
 
         // Observers
-        binding.btnOrderlistOrder.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_orderlistFragment_to_confirmationFragment))
-
-        // Adapter
-        val adapter = ProductAdapter()
-        binding.rvOrderlistShoworders.adapter = adapter
         orderlistViewModel.products.observe(viewLifecycleOwner, Observer {
             it?.let {
-                Timber.i("Size" + it.size)
                 adapter.submitList(it)
+            }
+        })
+
+        orderlistViewModel.navigateToConfirmation.observe(viewLifecycleOwner, Observer {
+            if(it == true){
+                this.findNavController().navigate(OrderlistFragmentDirections.actionOrderlistFragmentToConfirmationFragment())
+                orderlistViewModel.doneNavigating()
             }
         })
 

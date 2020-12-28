@@ -17,4 +17,5 @@
     <string name="listitem_orderlist_upbutton">+1</string>
     <string name="listitem_orderlist_downbutton">-1</string>
     <string name="listitem_orderlist_defaultamount">0</string>
+    <string name="app_btntext_back">Terug</string>
 </resources>

@@ -1,11 +1,11 @@
-package com.example.bestelapp.fragments.ordersucces
+package com.example.bestelapp.fragments.sponsor
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
-class OrderSuccesViewModel(application: Application): AndroidViewModel(application)  {
+class SponsorViewModel(application: Application): AndroidViewModel(application) {
     private var _navigateToTitle = MutableLiveData<Boolean>()
 
     val navigateToTitle: LiveData<Boolean>

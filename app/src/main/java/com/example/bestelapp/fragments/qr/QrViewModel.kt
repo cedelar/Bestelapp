@@ -1,11 +1,12 @@
-package com.example.bestelapp.fragments.ordersucces
+package com.example.bestelapp.fragments.qr
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
-class OrderSuccesViewModel(application: Application): AndroidViewModel(application)  {
+class QrViewModel(application: Application): AndroidViewModel(application)  {
+
     private var _navigateToTitle = MutableLiveData<Boolean>()
 
     val navigateToTitle: LiveData<Boolean>

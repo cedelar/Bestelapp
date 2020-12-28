@@ -3,6 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+    <data>
+
+        <variable
+            name="titleViewModel"
+            type="com.example.bestelapp.fragments.title.TitleViewModel" />
+    </data>
+
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -48,6 +55,7 @@
             android:layout_marginEnd="@dimen/margin_XL"
             android:layout_marginBottom="@dimen/margin_NORMAL"
             android:text="@string/orderlist_orderbtn"
+            android:onClick="@{() -> titleViewModel.onOrderClicked()}"
             app:layout_constraintBottom_toTopOf="@+id/btn_title_qr"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -61,6 +69,7 @@
             android:layout_marginStart="@dimen/margin_XL"
             android:layout_marginEnd="@dimen/margin_XL"
             android:text="@string/title_qrbtn"
+            android:onClick="@{() -> titleViewModel.onQrClicked()}"
             app:layout_constraintBottom_toTopOf="@+id/btn_title_sponsor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -76,6 +85,7 @@
             android:layout_marginEnd="@dimen/margin_XL"
             android:layout_marginBottom="@dimen/margin_XL"
             android:text="@string/title_sponsorbtn"
+            android:onClick="@{() -> titleViewModel.onSponsorClicked()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"

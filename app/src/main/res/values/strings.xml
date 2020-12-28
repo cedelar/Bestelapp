@@ -12,4 +12,9 @@
     <string name="title_sponsorbtn">Wij danken onze sponsors</string>
     <string name="title_welcomemsg">Welkom bij OLT Kemzeke 2020</string>
     <string name="title_bannerdesc">Eventbanner</string>
+    <string name="listitem_orderlist_imagedesc">Picture of product</string>
+    <string name="listitem_orderlist_inputhint">Aantal</string>
+    <string name="listitem_orderlist_upbutton">+1</string>
+    <string name="listitem_orderlist_downbutton">-1</string>
+    <string name="listitem_orderlist_defaultamount">0</string>
 </resources>

@@ -6,7 +6,7 @@
     app:startDestination="@id/titleFragment">
     <fragment
         android:id="@+id/titleFragment"
-        android:name="com.example.bestelapp.ui.TitleFragment"
+        android:name="com.example.bestelapp.fragments.title.TitleFragment"
         android:label="TitleFragment"
         tools:layout="@layout/fragment_title">
         <action
@@ -15,7 +15,7 @@
     </fragment>
     <fragment
         android:id="@+id/orderlistFragment"
-        android:name="com.example.bestelapp.ui.OrderlistFragment"
+        android:name="com.example.bestelapp.fragments.orderlist.OrderlistFragment"
         android:label="OrderlistFragment"
         tools:layout="@layout/fragment_orderlist">
         <action
@@ -24,7 +24,7 @@
     </fragment>
     <fragment
         android:id="@+id/confirmationFragment"
-        android:name="com.example.bestelapp.ui.ConfirmationFragment"
+        android:name="com.example.bestelapp.fragments.confirmation.ConfirmationFragment"
         android:label="ConfirmationFragment"
         tools:layout="@layout/fragment_confirmation">
         <action
@@ -33,7 +33,7 @@
     </fragment>
     <fragment
         android:id="@+id/ordersuccesFragment"
-        android:name="com.example.bestelapp.ui.OrdersuccesFragment"
+        android:name="com.example.bestelapp.fragments.ordersucces.OrdersuccesFragment"
         android:label="OrdersuccesFragment"
         tools:layout="@layout/fragment_ordersucces">
         <action

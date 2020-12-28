@@ -8,24 +8,24 @@
         android:layout_height="match_parent">
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tv_title_welcomemessage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title_welcomemsg"
-            app:layout_constraintBottom_toTopOf="@+id/guideline3"
+            app:layout_constraintBottom_toTopOf="@+id/gl_title_bottom"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline2" />
+            app:layout_constraintTop_toTopOf="@+id/gl_title_top" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline2"
+            android:id="@+id/gl_title_top"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="@fraction/frac_banner_top" />
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/iv_title_banner"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/margin_NORMAL"
@@ -33,7 +33,7 @@
             android:layout_marginEnd="@dimen/margin_NORMAL"
             android:layout_marginBottom="@dimen/margin_XL"
             android:contentDescription="@string/title_bannerdesc"
-            app:layout_constraintBottom_toTopOf="@+id/guideline2"
+            app:layout_constraintBottom_toTopOf="@+id/gl_title_top"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
@@ -52,7 +52,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/guideline3" />
+            app:layout_constraintTop_toTopOf="@+id/gl_title_bottom" />
 
         <Button
             android:id="@+id/btn_title_qr"
@@ -83,7 +83,7 @@
             app:layout_constraintTop_toBottomOf="@+id/btn_title_qr" />
 
         <androidx.constraintlayout.widget.Guideline
-            android:id="@+id/guideline3"
+            android:id="@+id/gl_title_bottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"

@@ -2,4 +2,6 @@
 <resources>
     <fraction name="frac_banner_top">0.4</fraction>
     <fraction name="frac_buttonchain_bottom">0.55</fraction>
+    <fraction name="frac_icon_left">0.25</fraction>
+    <fraction name="frac_button_right">0.17</fraction>
 </resources>

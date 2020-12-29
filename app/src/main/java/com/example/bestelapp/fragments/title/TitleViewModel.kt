@@ -4,9 +4,11 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
+import androidx.lifecycle.Transformations
 import com.example.bestelapp.data.product.ProductDatabaseDao
+import com.example.bestelapp.data.qr.QrDatabaseDao
 
-class TitleViewModel(application: Application): AndroidViewModel(application) {
+class TitleViewModel(val database: QrDatabaseDao, application: Application): AndroidViewModel(application) {
 
     //Navigation
     private var _navigateToOrderlist = MutableLiveData<Boolean>()
@@ -19,6 +21,11 @@ class TitleViewModel(application: Application): AndroidViewModel(application) {
         get() = _navigateToQr
     val navigateToSponsor: LiveData<Boolean>
         get() = _navigateToSponsor
+
+    val qrInDatabase = database.getQr()
+    val orderButtonVisible = Transformations.map(database.getQrCount()){
+        it == 1
+    }
 
     fun onOrderClicked(){
         _navigateToOrderlist.value = true

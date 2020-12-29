@@ -5,15 +5,16 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
-import com.example.bestelapp.data.product.Product
+import com.example.bestelapp.data.product.ModelProduct
 import com.example.bestelapp.databinding.ListitemOrderlistProductBinding
+import timber.log.Timber
 
-class ProductAdapter : ListAdapter<Product,
+class ProductAdapter(val clickListener: ProductItemListener) : ListAdapter<ModelProduct,
         ProductAdapter.ViewHolder>(ProductDiffCallback()) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
-        holder.bind(item)
+        holder.bind(clickListener, item)
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -23,8 +24,9 @@ class ProductAdapter : ListAdapter<Product,
     class ViewHolder private constructor(val binding: ListitemOrderlistProductBinding)
         : RecyclerView.ViewHolder(binding.root) {
 
-        fun bind(item: Product) {
+        fun bind(clickListener: ProductItemListener, item: ModelProduct) {
             binding.product = item
+            binding.clickListener = clickListener
             binding.executePendingBindings()
         }
 
@@ -39,12 +41,19 @@ class ProductAdapter : ListAdapter<Product,
     }
 }
 
-class ProductDiffCallback : DiffUtil.ItemCallback<Product>() {
-    override fun areItemsTheSame(oldItem: Product, newItem: Product): Boolean {
-        return oldItem.productId == newItem.productId
+class ProductDiffCallback : DiffUtil.ItemCallback<ModelProduct>() {
+    override fun areItemsTheSame(oldItem: ModelProduct, newItem: ModelProduct): Boolean {
+        Timber.i("ItemComparizon")
+        return oldItem.productId == newItem.productId && oldItem.amount == newItem.amount && oldItem.name == newItem.name
     }
 
-    override fun areContentsTheSame(oldItem: Product, newItem: Product): Boolean {
+    override fun areContentsTheSame(oldItem: ModelProduct, newItem: ModelProduct): Boolean {
         return oldItem == newItem
     }
+}
+
+class ProductItemListener(val clickUpListener: (productName: String) -> Unit,
+                            val clickDownListener: (productName: String) -> Unit){
+    fun onUpClick(modelProduct: ModelProduct) = clickUpListener(modelProduct.name)
+    fun onDownClick(modelProduct: ModelProduct) = clickDownListener(modelProduct.name)
 }

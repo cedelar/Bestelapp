@@ -33,6 +33,9 @@
         android:name="com.example.bestelapp.fragments.confirmation.ConfirmationFragment"
         android:label="ConfirmationFragment"
         tools:layout="@layout/fragment_confirmation">
+        <argument
+            android:name="orders"
+            app:argType="com.example.bestelapp.data.Order[]" />
         <action
             android:id="@+id/action_confirmationFragment_to_ordersuccesFragment"
             app:destination="@id/ordersuccesFragment" />

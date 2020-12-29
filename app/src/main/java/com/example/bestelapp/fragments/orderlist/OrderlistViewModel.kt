@@ -1,42 +1,87 @@
 package com.example.bestelapp.fragments.orderlist
 
 import android.app.Application
-import androidx.lifecycle.AndroidViewModel
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Transformations
-import com.example.bestelapp.data.product.ProductDataProvider
-import com.example.bestelapp.data.product.ProductDatabaseDao
+import androidx.lifecycle.*
+import com.example.bestelapp.data.Order
+import com.example.bestelapp.data.product.ProductDatabase
+import com.example.bestelapp.data.product.decrementByName
+import com.example.bestelapp.data.product.incrementByName
+import com.example.bestelapp.data.product.isAmountPlaced
+import com.example.bestelapp.repository.ProductRepository
+import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class OrderlistViewModel(
-    val database: ProductDatabaseDao,
-    application: Application): AndroidViewModel(application) {
+class OrderlistViewModel(application: Application): AndroidViewModel(application) {
 
-    //LiveData<List> with all products
-    //val products = database.getAllProducts()
-    val products = ProductDataProvider.getTestProducts()
+    // Value Init
+    private val database = ProductDatabase.getInstance(application)
+    private val productRepository = ProductRepository(database)
+    val products = productRepository.products
 
-    //TODO
-    val confirmButtonVisible = true
+    private var _viewUpdateRequired = MutableLiveData<Boolean>()
+    val viewUpdateRequired: LiveData<Boolean>
+        get() = _viewUpdateRequired
 
-    init {
+    private var _confirmButtonVisible = MutableLiveData<Boolean>()
+    val confirmButtonVisible: LiveData<Boolean>
+        get() = _confirmButtonVisible
 
-    }
-
-    // Navigation
     private var _navigateToConfirmation = MutableLiveData<Boolean>()
-
     val navigateToConfirmation: LiveData<Boolean>
         get() = _navigateToConfirmation
+
+
+    init{
+        viewModelScope.launch {
+            productRepository.refreshProducts()
+        }
+    }
+
+    // Buttonhandlers
+    fun onAddClicked(productName: String){
+        products.value?.incrementByName(productName)
+        _viewUpdateRequired.value = true
+        updateConfirmButton()
+
+        Timber.i("Add: " + productName)
+        Timber.i("" + products.value)
+    }
+
+    fun onSubtractClicked(productName: String){
+        products.value?.decrementByName(productName)
+        _viewUpdateRequired.value = true
+        updateConfirmButton()
+        Timber.i("Subtract: " + productName)
+        Timber.i("" + products.value)
+    }
 
     fun onConfirmClicked(){
         //TODO: Inputvalidation
         _navigateToConfirmation.value = true
     }
 
+
+    // Livedataupdaters
+    private fun updateConfirmButton(){
+        _confirmButtonVisible.value = products.value?.isAmountPlaced() == true
+    }
+
+    fun viewUpdateExecuted(){
+        _viewUpdateRequired.value = false
+    }
+
     fun doneNavigating(){
         _navigateToConfirmation.value = false
     }
 
+    // Datapassing
+    fun getOrders(): Array<Order> {
+        val list =  ArrayList<Order>()
+        for(product in products.value!!){
+            if(product.amount > 0){
+                list.add(Order(product.name, product.amount, product.price))
+            }
+        }
+        return list.toTypedArray()
+    }
 }

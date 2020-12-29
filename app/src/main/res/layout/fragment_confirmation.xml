@@ -20,9 +20,9 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="@dimen/margin_NORMAL"
             android:layout_marginEnd="@dimen/margin_NORMAL"
-            android:layout_marginBottom="@dimen/margin_NORMAL"
-            android:text="@string/confirmation_confirmbtn"
+            android:layout_marginBottom="@dimen/margin_SMALL"
             android:onClick="@{() -> confirmationViewModel.onNextClicked()}"
+            android:text="@string/confirmation_confirmbtn"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -34,12 +34,13 @@
             android:layout_marginStart="@dimen/margin_NORMAL"
             android:layout_marginEnd="@dimen/margin_NORMAL"
             android:layout_marginBottom="@dimen/margin_NORMAL"
-            android:text="TextView"
+            app:confirmationTotal="@{confirmationViewModel}"
             app:layout_constraintBottom_toTopOf="@+id/btn_confirmation_confirm"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <androidx.recyclerview.widget.RecyclerView
+        <ScrollView
+            android:id="@+id/sc_confirmation"
             android:layout_width="0dp"
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/margin_NORMAL"
@@ -49,6 +50,15 @@
             app:layout_constraintBottom_toTopOf="@+id/tv_confirmation_totalamount"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_confirmation_products"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:confirmationProducts="@{confirmationViewModel}"
+                />
+        </ScrollView>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

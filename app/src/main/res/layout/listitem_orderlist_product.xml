@@ -7,8 +7,12 @@
     <data>
 
         <variable
+            name="clickListener"
+            type="com.example.bestelapp.fragments.orderlist.ProductItemListener" />
+
+        <variable
             name="product"
-            type="com.example.bestelapp.data.product.Product" />
+            type="com.example.bestelapp.data.product.ModelProduct" />
 
     </data>
 
@@ -50,7 +54,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/tv_orderlist_product_productprice"
-            app:layout_constraintEnd_toStartOf="@+id/textView"
+            app:layout_constraintEnd_toStartOf="@+id/tv_orderlist_product_amount"
             app:layout_constraintStart_toEndOf="@+id/gl_orderlist_product_productimage"
             app:layout_constraintTop_toBottomOf="@+id/tv_orderlist_product_productname"
             app:productDescription="@{product}"
@@ -69,13 +73,14 @@
             tools:text="2 bonnen" />
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/tv_orderlist_product_amount"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:background="@drawable/border"
             android:text="@string/listitem_orderlist_defaultamount"
             android:textAlignment="center"
+            app:productAmount="@{product}"
             app:layout_constraintBottom_toTopOf="@+id/btn_orderlist_product_downbutton"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/btn_orderlist_product_upbutton"
@@ -87,7 +92,8 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@string/listitem_orderlist_upbutton"
-            app:layout_constraintBottom_toTopOf="@+id/textView"
+            android:onClick="@{() -> clickListener.onUpClick(product)}"
+            app:layout_constraintBottom_toTopOf="@+id/tv_orderlist_product_amount"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintWidth_percent="@fraction/frac_button_right" />
@@ -98,9 +104,10 @@
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
             android:text="@string/listitem_orderlist_downbutton"
+            android:onClick="@{() -> clickListener.onDownClick(product)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView"
+            app:layout_constraintTop_toBottomOf="@+id/tv_orderlist_product_amount"
             app:layout_constraintWidth_percent="@fraction/frac_button_right" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

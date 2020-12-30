@@ -14,6 +14,7 @@ import com.example.bestelapp.R
 import com.example.bestelapp.databinding.FragmentOrdersuccesBinding
 import com.example.bestelapp.databinding.FragmentQrBinding
 import com.example.bestelapp.databinding.FragmentTitleBinding
+import com.example.bestelapp.fragments.confirmation.ConfirmationFragmentArgs
 import com.example.bestelapp.fragments.qr.QrFragmentDirections
 import com.example.bestelapp.fragments.qr.QrViewModel
 import com.example.bestelapp.fragments.qr.QrViewModelFactory
@@ -24,18 +25,24 @@ class OrdersuccesFragment: Fragment() {
         // Value init
         val binding = DataBindingUtil.inflate<FragmentOrdersuccesBinding>(inflater, R.layout.fragment_ordersucces, container, false)
         val application = requireNotNull(this.activity).application
-        val viewModelFactory = OrderSuccesViewModelFactory(application)
+        val arguments = arguments?.let { OrdersuccesFragmentArgs.fromBundle(it) }
+        val viewModelFactory = arguments?.let { OrderSuccesViewModelFactory(it.message, application) }
         val orderSuccesViewModel =
-            ViewModelProvider(
-                this, viewModelFactory).get(OrderSuccesViewModel::class.java)
-
+            viewModelFactory?.let {
+                ViewModelProvider(
+                    this, it
+                ).get(OrderSuccesViewModel::class.java)
+            }
 
         // Binding
         binding.orderSuccesViewModel = orderSuccesViewModel
         binding.lifecycleOwner = this
 
+        // Title
+        activity?.title = orderSuccesViewModel?.getTitle()
+
         //Observer
-        orderSuccesViewModel.navigateToTitle.observe(viewLifecycleOwner, Observer {
+        orderSuccesViewModel?.navigateToTitle?.observe(viewLifecycleOwner, Observer {
             if(it == true){
                 this.findNavController().navigate(OrdersuccesFragmentDirections.actionOrdersuccesFragmentToTitleFragment())
                 orderSuccesViewModel.doneNavigating()

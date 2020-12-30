@@ -50,7 +50,7 @@
             android:layout_marginTop="@dimen/margin_NORMAL"
             android:layout_marginEnd="@dimen/margin_NORMAL"
             android:layout_marginBottom="@dimen/margin_NORMAL"
-            android:text="@string/ordersucces_succesmsg"
+            app:succesMessage="@{orderSuccesViewModel}"
             app:layout_constraintBottom_toTopOf="@+id/btn_ordersucces_backbtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

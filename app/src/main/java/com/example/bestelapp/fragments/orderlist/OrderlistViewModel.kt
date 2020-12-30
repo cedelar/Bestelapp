@@ -2,16 +2,17 @@ package com.example.bestelapp.fragments.orderlist
 
 import android.app.Application
 import androidx.lifecycle.*
-import com.example.bestelapp.data.Order
+import com.example.bestelapp.data.datawrapper.Order
 import com.example.bestelapp.data.product.ProductDatabase
 import com.example.bestelapp.data.product.decrementByName
 import com.example.bestelapp.data.product.incrementByName
 import com.example.bestelapp.data.product.isAmountPlaced
+import com.example.bestelapp.data.qr.QrDatabaseDao
 import com.example.bestelapp.repository.ProductRepository
 import kotlinx.coroutines.launch
 import timber.log.Timber
 
-class OrderlistViewModel(application: Application): AndroidViewModel(application) {
+class OrderlistViewModel(val qrDataSource: QrDatabaseDao, val table: Int, application: Application): AndroidViewModel(application) {
 
     // Value Init
     private val database = ProductDatabase.getInstance(application)
@@ -83,5 +84,9 @@ class OrderlistViewModel(application: Application): AndroidViewModel(application
             }
         }
         return list.toTypedArray()
+    }
+
+    fun getTitle(): String{
+        return "Plaats uw bestelling: Tafel $table"
     }
 }

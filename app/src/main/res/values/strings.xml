@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">Bestelapp</string>
+    <string name="app_name">OLT Bestelapp</string>
     <string name="orderlist_orderbtn">Bestel</string>
     <string name="confirmation_confirmbtn">Bevestig</string>
     <string name="ordersucces_succesmsg">Uw bestelling is succesvol ontvangen, dit wordt zodadelijk naar uw tafel gebracht. Gelieve het correcte aantal bonnen klaar te leggen!</string>

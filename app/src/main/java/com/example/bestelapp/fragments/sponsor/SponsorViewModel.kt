@@ -18,4 +18,8 @@ class SponsorViewModel(application: Application): AndroidViewModel(application) 
     fun doneNavigating(){
         _navigateToTitle.value = false
     }
+
+    fun getTitle(): String{
+        return "Onze Sponsors"
+    }
 }

@@ -8,16 +8,10 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
-import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import com.example.bestelapp.R
-import com.example.bestelapp.data.product.ProductDatabase
 import com.example.bestelapp.data.qr.QrDatabase
 import com.example.bestelapp.databinding.FragmentTitleBinding
-import com.example.bestelapp.fragments.orderlist.OrderlistFragmentDirections
-import com.example.bestelapp.fragments.orderlist.OrderlistViewModel
-import com.example.bestelapp.fragments.orderlist.OrderlistViewModelFactory
 
 class TitleFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -26,8 +20,8 @@ class TitleFragment : Fragment() {
         // Value init
         val binding = DataBindingUtil.inflate<FragmentTitleBinding>(inflater, R.layout.fragment_title, container, false)
         val application = requireNotNull(this.activity).application
-        val dataSource = QrDatabase.getInstance(application).qrDatabaseDao
-        val viewModelFactory = TitleViewModelFactory(dataSource, application)
+        val qrDataSource = QrDatabase.getInstance(application).qrDatabaseDao
+        val viewModelFactory = TitleViewModelFactory(qrDataSource, application)
         val titleViewModel =
             ViewModelProvider(
                 this, viewModelFactory).get(TitleViewModel::class.java)
@@ -36,10 +30,14 @@ class TitleFragment : Fragment() {
         binding.titleViewModel = titleViewModel
         binding.lifecycleOwner = this
 
+        // Title
+        activity?.title = titleViewModel.getTitle()
+
         // Observers
         titleViewModel.navigateToOrderlist.observe(viewLifecycleOwner, Observer {
             if(it == true){
-                this.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToOrderlistFragment())
+                this.findNavController().navigate(TitleFragmentDirections.actionTitleFragmentToOrderlistFragment(
+                    titleViewModel.qrInDatabase.value?.tableNumber!!, titleViewModel.qrInDatabase.value?.controlNumber!!))
                 titleViewModel.doneNavigating()
             }
         })

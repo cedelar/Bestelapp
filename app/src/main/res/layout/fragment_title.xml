@@ -19,9 +19,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title_welcomemsg"
-            app:titleInfo="@{titleViewModel.qrInDatabase}"
-            app:layout_constraintBottom_toTopOf="@+id/gl_title_bottom"
+            app:layout_constraintBottom_toTopOf="@+id/tv_title_tablenumber"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/gl_title_top" />
 
@@ -55,9 +55,9 @@
             android:layout_marginTop="@dimen/margin_XL"
             android:layout_marginEnd="@dimen/margin_XL"
             android:layout_marginBottom="@dimen/margin_NORMAL"
-            android:text="@string/orderlist_orderbtn"
-            android:onClick="@{() -> titleViewModel.onOrderClicked()}"
             android:enabled="@{titleViewModel.orderButtonVisible}"
+            android:onClick="@{() -> titleViewModel.onOrderClicked()}"
+            android:text="@string/orderlist_orderbtn"
             app:layout_constraintBottom_toTopOf="@+id/btn_title_qr"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -70,8 +70,8 @@
             android:layout_height="0dp"
             android:layout_marginStart="@dimen/margin_XL"
             android:layout_marginEnd="@dimen/margin_XL"
-            android:text="@string/title_qrbtn"
             android:onClick="@{() -> titleViewModel.onQrClicked()}"
+            android:text="@string/title_qrbtn"
             app:layout_constraintBottom_toTopOf="@+id/btn_title_sponsor"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -86,8 +86,8 @@
             android:layout_marginTop="@dimen/margin_NORMAL"
             android:layout_marginEnd="@dimen/margin_XL"
             android:layout_marginBottom="@dimen/margin_XL"
-            android:text="@string/title_sponsorbtn"
             android:onClick="@{() -> titleViewModel.onSponsorClicked()}"
+            android:text="@string/title_sponsorbtn"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.5"
@@ -100,6 +100,16 @@
             android:layout_height="wrap_content"
             android:orientation="horizontal"
             app:layout_constraintGuide_percent="@fraction/frac_buttonchain_bottom" />
+
+        <TextView
+            android:id="@+id/tv_title_tablenumber"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/gl_title_bottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_welcomemessage"
+            app:titleTable="@{titleViewModel.qrInDatabase}" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

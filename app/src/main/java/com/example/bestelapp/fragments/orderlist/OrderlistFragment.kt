@@ -10,7 +10,9 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.bestelapp.R
+import com.example.bestelapp.data.qr.QrDatabase
 import com.example.bestelapp.databinding.FragmentOrderlistBinding
+import com.example.bestelapp.fragments.confirmation.ConfirmationFragmentArgs
 import timber.log.Timber
 
 class OrderlistFragment: Fragment() {
@@ -20,14 +22,22 @@ class OrderlistFragment: Fragment() {
         // Value init
         val binding: FragmentOrderlistBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_orderlist, container, false)
         val application = requireNotNull(this.activity).application
-        val viewModelFactory = OrderlistViewModelFactory(application)
+        val qrDataSource = QrDatabase.getInstance(application).qrDatabaseDao
+        val arguments = arguments?.let { OrderlistFragmentArgs.fromBundle(it) }
+        val viewModelFactory = arguments?.let {
+            OrderlistViewModelFactory(qrDataSource,
+                it.table, application)
+        }
         val orderlistViewModel =
-            ViewModelProvider(
-                this, viewModelFactory).get(OrderlistViewModel::class.java)
+            viewModelFactory?.let {
+                ViewModelProvider(
+                    this, it
+                ).get(OrderlistViewModel::class.java)
+            }
         val adapter = ProductAdapter(
             ProductItemListener(
-                {name -> orderlistViewModel.onAddClicked(name)},
-                {name -> orderlistViewModel.onSubtractClicked(name)}
+                {name -> orderlistViewModel?.onAddClicked(name) },
+                {name -> orderlistViewModel?.onSubtractClicked(name)}
             )
         )
 
@@ -36,8 +46,11 @@ class OrderlistFragment: Fragment() {
         binding.lifecycleOwner = this
         binding.rvOrderlistShoworders.adapter = adapter
 
+        // Title
+        activity?.title = orderlistViewModel?.getTitle()
+
         // Observers
-        orderlistViewModel.products.observe(viewLifecycleOwner, Observer {
+        orderlistViewModel?.products?.observe(viewLifecycleOwner, Observer {
             it?.let {
                 Timber.i("Products Updated")
                 adapter.submitList(it)
@@ -45,16 +58,16 @@ class OrderlistFragment: Fragment() {
             }
         })
 
-        orderlistViewModel.viewUpdateRequired.observe(viewLifecycleOwner, Observer {
+        orderlistViewModel?.viewUpdateRequired?.observe(viewLifecycleOwner, Observer {
             if(it == true){
                 adapter.notifyDataSetChanged()
                 orderlistViewModel.viewUpdateExecuted()
             }
         })
 
-        orderlistViewModel.navigateToConfirmation.observe(viewLifecycleOwner, Observer {
+        orderlistViewModel?.navigateToConfirmation?.observe(viewLifecycleOwner, Observer {
             if(it == true){
-                this.findNavController().navigate(OrderlistFragmentDirections.actionOrderlistFragmentToConfirmationFragment(orderlistViewModel.getOrders()))
+                this.findNavController().navigate(OrderlistFragmentDirections.actionOrderlistFragmentToConfirmationFragment(orderlistViewModel.getOrders(), arguments.table,arguments.control))
                 orderlistViewModel.doneNavigating()
             }
         })

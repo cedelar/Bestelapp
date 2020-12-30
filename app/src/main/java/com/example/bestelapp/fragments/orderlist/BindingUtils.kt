@@ -34,7 +34,7 @@ fun TextView.setProductName(item: ModelProduct?){
 @BindingAdapter("productPrice")
 fun TextView.setProductPrice(item: ModelProduct?){
     item?.let {
-        text = item.price.toString()
+        (item.price.toInt().toString() + " bonnen").also { text = it }
     }
 }
 

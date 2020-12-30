@@ -10,6 +10,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.example.bestelapp.R
+import com.example.bestelapp.data.qr.QrDatabase
 import com.example.bestelapp.databinding.FragmentConfirmationBinding
 
 class ConfirmationFragment: Fragment() {
@@ -18,8 +19,9 @@ class ConfirmationFragment: Fragment() {
         // Value init
         val binding = DataBindingUtil.inflate<FragmentConfirmationBinding>(inflater, R.layout.fragment_confirmation, container, false)
         val application = requireNotNull(this.activity).application
+        val qrDataSource = QrDatabase.getInstance(application).qrDatabaseDao
         val arguments = arguments?.let { ConfirmationFragmentArgs.fromBundle(it) }
-        val viewModelFactory = arguments?.let { ConfirmationViewModelFactory(it.orders, application) }
+        val viewModelFactory = arguments?.let { ConfirmationViewModelFactory(qrDataSource, it.orders, it.table, it.control, application) }
         val confirmationViewModel =
             viewModelFactory?.let {
                 ViewModelProvider(
@@ -31,10 +33,13 @@ class ConfirmationFragment: Fragment() {
         binding.confirmationViewModel = confirmationViewModel
         binding.lifecycleOwner = this
 
+        // Title
+        activity?.title = confirmationViewModel?.getTitle()
+
         //Observer
-        confirmationViewModel?.navigateToSucces?.observe(viewLifecycleOwner, Observer {
-            if(it == true){
-                this.findNavController().navigate(ConfirmationFragmentDirections.actionConfirmationFragmentToOrdersuccesFragment())
+        confirmationViewModel?.navigateToSuccesMessage?.observe(viewLifecycleOwner, Observer {
+            if(it != ""){
+                this.findNavController().navigate(ConfirmationFragmentDirections.actionConfirmationFragmentToOrdersuccesFragment(it))
                 confirmationViewModel.doneNavigating()
             }
         })

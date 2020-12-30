@@ -36,6 +36,9 @@ class SponsorFragment: Fragment() {
         binding.sponsorViewModel = sponsorViewModel
         binding.lifecycleOwner = this
 
+        // Title
+        activity?.title = sponsorViewModel.getTitle()
+
         //Observer
         sponsorViewModel.navigateToTitle.observe(viewLifecycleOwner, Observer {
             if(it == true){

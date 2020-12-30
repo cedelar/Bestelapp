@@ -12,6 +12,7 @@ import com.google.zxing.Result
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
+import timber.log.Timber
 
 private const val BASE_URL = "https://olt-bestelapp.herokuapp.com/html/tafel.html?"
 
@@ -42,7 +43,8 @@ class QrViewModel(val database: QrDatabaseDao,
         if(result.barcodeFormat == BarcodeFormat.QR_CODE){
             val code = result.text.substring(BASE_URL.length).split("&")
             _tableNumber.value = code[0].substring(3).toInt()
-            val controlNumber = code[1].substring(3).toInt()
+            val controlNumber = code[1].substring(2).toInt()
+            Timber.i(code.toString())
             viewModelScope.launch {
                 clear()
                 insert(Qr(_tableNumber.value!!, controlNumber))
@@ -62,5 +64,9 @@ class QrViewModel(val database: QrDatabaseDao,
         withContext(Dispatchers.IO) {
             database.insert(qr)
         }
+    }
+
+    fun getTitle(): String{
+        return "QR Code Scanner"
     }
 }

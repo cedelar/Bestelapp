@@ -9,7 +9,7 @@ import androidx.lifecycle.LiveData
 fun TextView.setInfo(item: LiveData<Int>?){
     item?.let {
         if(item.value.toString() == "null"){
-            "Gelieve je QR code te scannen".also { text = it }
+            "Gelieve uw QR code te scannen".also { text = it }
         }else{
             ("Tafel " + item.value.toString()).also { text = it }
         }

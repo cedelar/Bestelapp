@@ -42,4 +42,8 @@ class TitleViewModel(val database: QrDatabaseDao, application: Application): And
         _navigateToQr.value = false
         _navigateToSponsor.value = false
     }
+
+    fun getTitle(): String{
+        return "OLT Bestelapp"
+    }
 }

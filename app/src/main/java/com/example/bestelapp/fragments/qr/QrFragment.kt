@@ -72,6 +72,9 @@ class QrFragment: Fragment() {
         binding.qrViewModel = qrViewModel
         binding.lifecycleOwner = this
 
+        // Title
+        activity?.title = qrViewModel.getTitle()
+
         //Observers
         qrViewModel.navigateToTitle.observe(viewLifecycleOwner, Observer {
             if(it == true){

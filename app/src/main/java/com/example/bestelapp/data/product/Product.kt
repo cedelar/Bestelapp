@@ -1,8 +1,5 @@
 package com.example.bestelapp.data.product
 
-import android.graphics.ColorSpace
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.room.ColumnInfo
 import androidx.room.Entity
 import androidx.room.Index
@@ -19,15 +16,17 @@ data class ModelProduct(
     val category: String,
     val available: Boolean,
     var amount: Int = 0
-    ){
-    constructor(productId_: Long,
-                name_: String,
-                price_: Double,
-                description_: String,
-                pictureLink_: String,
-                category_: String,
-                available_: Boolean
-    ) : this(productId = productId_,
+) {
+    constructor(
+        productId_: Long,
+        name_: String,
+        price_: Double,
+        description_: String,
+        pictureLink_: String,
+        category_: String,
+        available_: Boolean
+    ) : this(
+        productId = productId_,
         name = name_,
         price = price_,
         description = description_,
@@ -36,36 +35,36 @@ data class ModelProduct(
         available = available_
     )
 
-    fun increment(){
+    fun increment() {
         amount++
     }
 
-    fun decrement(){
-        if(amount > 0){
+    fun decrement() {
+        if (amount > 0) {
             amount--
         }
     }
 }
 
-    fun List<ModelProduct>.incrementByName(name: String){
-        this.find { prod -> prod.name == name }?.increment()
-    }
+fun List<ModelProduct>.incrementByName(name: String) {
+    this.find { prod -> prod.name == name }?.increment()
+}
 
-    fun List<ModelProduct>.decrementByName(name: String){
-        this.find { prod -> prod.name == name }?.decrement()
-    }
+fun List<ModelProduct>.decrementByName(name: String) {
+    this.find { prod -> prod.name == name }?.decrement()
+}
 
-    fun List<ModelProduct>.isAmountPlaced(): Boolean {
-        for (product in this){
-            if(product.amount > 0){
-                return true
-            }
+fun List<ModelProduct>.isAmountPlaced(): Boolean {
+    for (product in this) {
+        if (product.amount > 0) {
+            return true
         }
-        return false
     }
+    return false
+}
 
 @Entity(tableName = "product_table", indices = arrayOf(Index(value = ["product_name"], unique = true)))
-data class DatabaseProduct (
+data class DatabaseProduct(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "product_id")
     val productId: Long = 0L,
@@ -87,15 +86,17 @@ data class DatabaseProduct (
 
     @ColumnInfo(name = "product_availability")
     val available: Boolean = true,
-){
+) {
     constructor(id2: Long, name2: String, price2: Double) : this(productId = id2, name = name2, price = price2)
-    constructor(name_: String,
-                price_: Double,
-                description_: String,
-                pictureLink_: String,
-                category_: String,
-                available_: Boolean
-    ) : this(name = name_,
+    constructor(
+        name_: String,
+        price_: Double,
+        description_: String,
+        pictureLink_: String,
+        category_: String,
+        available_: Boolean
+    ) : this(
+        name = name_,
         price = price_,
         description = description_,
         pictureLink = pictureLink_,
@@ -104,7 +105,7 @@ data class DatabaseProduct (
     )
 }
 
-fun DatabaseProduct.asModelProduct(): ModelProduct{
+fun DatabaseProduct.asModelProduct(): ModelProduct {
     return ModelProduct(
         this.productId,
         this.name,
@@ -135,7 +136,7 @@ data class NetworkProduct(
 )
 
 fun NetworkProduct.asDatabaseProduct(): DatabaseProduct {
-    val availableBool : Boolean = this.available == "Ja"
+    val availableBool: Boolean = this.available == "Ja"
     val pictureLinkRefactor: String = BASE_URL + this.pictureLink.substring(6).replace(" ", "%20")
     return DatabaseProduct(
         this.name,

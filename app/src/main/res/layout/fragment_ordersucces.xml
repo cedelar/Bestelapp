@@ -16,12 +16,8 @@
 
         <Button
             android:id="@+id/btn_ordersucces_backbtn"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_NORMAL"
-            android:layout_marginEnd="@dimen/margin_NORMAL"
-            android:layout_marginBottom="@dimen/margin_NORMAL"
             android:text="@string/ordersucces_backbtn"
+            style="@style/BottomButton"
             android:onClick="@{() -> orderSuccesViewModel.onBackClicked()}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -51,6 +47,7 @@
             android:layout_marginEnd="@dimen/margin_NORMAL"
             android:layout_marginBottom="@dimen/margin_NORMAL"
             app:succesMessage="@{orderSuccesViewModel}"
+            style="@style/Subtitle"
             app:layout_constraintBottom_toTopOf="@+id/btn_ordersucces_backbtn"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"

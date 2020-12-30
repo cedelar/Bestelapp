@@ -16,9 +16,10 @@ import timber.log.Timber
 
 private const val BASE_URL = "https://olt-bestelapp.herokuapp.com/html/tafel.html?"
 
-class QrViewModel(val database: QrDatabaseDao,
-    application: Application) : AndroidViewModel(application)  {
+class QrViewModel(private val database: QrDatabaseDao, application: Application) :
+    AndroidViewModel(application) {
 
+    // Value init
     private var _navigateToTitle = MutableLiveData<Boolean>()
     val navigateToTitle: LiveData<Boolean>
         get() = _navigateToTitle
@@ -31,16 +32,19 @@ class QrViewModel(val database: QrDatabaseDao,
     val errorMessage: LiveData<String>
         get() = _errorMessage
 
-    fun onBackClicked(){
+    // Buttonhandlers
+    fun onBackClicked() {
         _navigateToTitle.value = true
     }
 
-    fun doneNavigating(){
+    // Livedataupdaters
+    fun doneNavigating() {
         _navigateToTitle.value = false
     }
 
-    fun handleQrScannerResult(result: Result){
-        if(result.barcodeFormat == BarcodeFormat.QR_CODE){
+    // Processing
+    fun handleQrScannerResult(result: Result) {
+        if (result.barcodeFormat == BarcodeFormat.QR_CODE) {
             val code = result.text.substring(BASE_URL.length).split("&")
             _tableNumber.value = code[0].substring(3).toInt()
             val controlNumber = code[1].substring(2).toInt()
@@ -49,13 +53,18 @@ class QrViewModel(val database: QrDatabaseDao,
                 clear()
                 insert(Qr(_tableNumber.value!!, controlNumber))
             }
-        }else{
+        } else {
             _errorMessage.value = "This isn't a QR-Code. Try again!"
         }
     }
 
-    private suspend fun clear(){
-        withContext(Dispatchers.IO){
+    fun getTitle(): String {
+        return "QR Code Scanner"
+    }
+
+    // Databasecalls
+    private suspend fun clear() {
+        withContext(Dispatchers.IO) {
             database.clear()
         }
     }
@@ -64,9 +73,5 @@ class QrViewModel(val database: QrDatabaseDao,
         withContext(Dispatchers.IO) {
             database.insert(qr)
         }
-    }
-
-    fun getTitle(): String{
-        return "QR Code Scanner"
     }
 }

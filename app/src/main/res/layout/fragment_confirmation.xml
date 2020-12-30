@@ -16,13 +16,9 @@
 
         <Button
             android:id="@+id/btn_confirmation_confirm"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_NORMAL"
-            android:layout_marginEnd="@dimen/margin_NORMAL"
-            android:layout_marginBottom="@dimen/margin_SMALL"
             android:onClick="@{() -> confirmationViewModel.onNextClicked()}"
             android:text="@string/confirmation_confirmbtn"
+            style="@style/BottomButton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
@@ -34,6 +30,7 @@
             android:layout_marginStart="@dimen/margin_NORMAL"
             android:layout_marginEnd="@dimen/margin_NORMAL"
             android:layout_marginBottom="@dimen/margin_NORMAL"
+            style="@style/Subtitle"
             app:confirmationTotal="@{confirmationViewModel}"
             app:layout_constraintBottom_toTopOf="@+id/btn_confirmation_confirm"
             app:layout_constraintEnd_toEndOf="parent"

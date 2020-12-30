@@ -6,31 +6,33 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.example.bestelapp.R
 import com.example.bestelapp.databinding.FragmentOrdersuccesBinding
-import com.example.bestelapp.databinding.FragmentQrBinding
-import com.example.bestelapp.databinding.FragmentTitleBinding
-import com.example.bestelapp.fragments.confirmation.ConfirmationFragmentArgs
-import com.example.bestelapp.fragments.qr.QrFragmentDirections
-import com.example.bestelapp.fragments.qr.QrViewModel
-import com.example.bestelapp.fragments.qr.QrViewModelFactory
 
-class OrdersuccesFragment: Fragment() {
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
-                              savedInstanceState: Bundle?): View? {
+class OrdersuccesFragment : Fragment() {
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View {
         // Value init
-        val binding = DataBindingUtil.inflate<FragmentOrdersuccesBinding>(inflater, R.layout.fragment_ordersucces, container, false)
+        val binding = DataBindingUtil.inflate<FragmentOrdersuccesBinding>(
+            inflater,
+            R.layout.fragment_ordersucces,
+            container,
+            false
+        )
         val application = requireNotNull(this.activity).application
         val arguments = arguments?.let { OrdersuccesFragmentArgs.fromBundle(it) }
-        val viewModelFactory = arguments?.let { OrderSuccesViewModelFactory(it.message, application) }
+        val viewModelFactory =
+            arguments?.let { OrderSuccesViewModelFactory(it.message, application) }
         val orderSuccesViewModel =
             viewModelFactory?.let {
                 ViewModelProvider(
-                    this, it
+                    this,
+                    it
                 ).get(OrderSuccesViewModel::class.java)
             }
 
@@ -41,13 +43,17 @@ class OrdersuccesFragment: Fragment() {
         // Title
         activity?.title = orderSuccesViewModel?.getTitle()
 
-        //Observer
-        orderSuccesViewModel?.navigateToTitle?.observe(viewLifecycleOwner, Observer {
-            if(it == true){
-                this.findNavController().navigate(OrdersuccesFragmentDirections.actionOrdersuccesFragmentToTitleFragment())
-                orderSuccesViewModel.doneNavigating()
+        // Observer
+        orderSuccesViewModel?.navigateToTitle?.observe(
+            viewLifecycleOwner,
+            {
+                if (it == true) {
+                    this.findNavController()
+                        .navigate(OrdersuccesFragmentDirections.actionOrdersuccesFragmentToTitleFragment())
+                    orderSuccesViewModel.doneNavigating()
+                }
             }
-        })
+        )
 
         return binding.root
     }

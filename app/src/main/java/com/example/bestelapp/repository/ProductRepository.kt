@@ -1,7 +1,6 @@
 package com.example.bestelapp.repository
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.example.bestelapp.data.product.ModelProduct
 import com.example.bestelapp.data.product.ProductDatabase
@@ -14,20 +13,16 @@ import retrofit2.await
 
 class ProductRepository(private val database: ProductDatabase) {
 
-    val products: LiveData<List<ModelProduct>> = Transformations.map(database.productDatabaseDao.getAllProducts()){
-        it.map { it -> it.asModelProduct() }
-    }
-
-    suspend fun clear(){
-        withContext(Dispatchers.IO) {
-            database.productDatabaseDao.clear()
+    val products: LiveData<List<ModelProduct>> =
+        Transformations.map(database.productDatabaseDao.getAllProducts()) { it ->
+            it.map { it.asModelProduct() }
         }
-    }
 
     suspend fun refreshProducts() {
         withContext(Dispatchers.IO) {
             val networkProducts = ProductApi.retrofitService.getProducts().await()
-            val products = networkProducts.map { netProd -> netProd.asDatabaseProduct() }.toTypedArray()
+            val products =
+                networkProducts.map { netProd -> netProd.asDatabaseProduct() }.toTypedArray()
             database.productDatabaseDao.insertAll(*products)
         }
     }

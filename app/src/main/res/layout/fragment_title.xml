@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:tools="http://schemas.android.com/tools"
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
 
@@ -16,6 +16,7 @@
 
         <TextView
             android:id="@+id/tv_title_welcomemessage"
+            style="@style/Title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/title_welcomemsg"
@@ -49,12 +50,7 @@
 
         <Button
             android:id="@+id/btn_title_order"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/margin_XL"
-            android:layout_marginTop="@dimen/margin_XL"
-            android:layout_marginEnd="@dimen/margin_XL"
-            android:layout_marginBottom="@dimen/margin_NORMAL"
+            style="@style/TitleButton"
             android:enabled="@{titleViewModel.orderButtonVisible}"
             android:onClick="@{() -> titleViewModel.onOrderClicked()}"
             android:text="@string/orderlist_orderbtn"
@@ -66,10 +62,7 @@
 
         <Button
             android:id="@+id/btn_title_qr"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/margin_XL"
-            android:layout_marginEnd="@dimen/margin_XL"
+            style="@style/TitleButton"
             android:onClick="@{() -> titleViewModel.onQrClicked()}"
             android:text="@string/title_qrbtn"
             app:layout_constraintBottom_toTopOf="@+id/btn_title_sponsor"
@@ -80,12 +73,7 @@
 
         <Button
             android:id="@+id/btn_title_sponsor"
-            android:layout_width="0dp"
-            android:layout_height="0dp"
-            android:layout_marginStart="@dimen/margin_XL"
-            android:layout_marginTop="@dimen/margin_NORMAL"
-            android:layout_marginEnd="@dimen/margin_XL"
-            android:layout_marginBottom="@dimen/margin_XL"
+            style="@style/TitleButton"
             android:onClick="@{() -> titleViewModel.onSponsorClicked()}"
             android:text="@string/title_sponsorbtn"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -103,6 +91,7 @@
 
         <TextView
             android:id="@+id/tv_title_tablenumber"
+            style="@style/Subtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/gl_title_bottom"

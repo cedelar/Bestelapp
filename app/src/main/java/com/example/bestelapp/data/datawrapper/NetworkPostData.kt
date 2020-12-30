@@ -13,7 +13,7 @@ data class DataWrapper(
     val tableNumber: Int,
     @Json(name = "prijs")
     val price: Int
-    )
+)
 
 @JsonClass(generateAdapter = true)
 data class NetworkOrder(
@@ -31,7 +31,7 @@ data class ProductNameWrapper(
     val name: String,
 )
 
-fun String.toProductNameWrapper(): ProductNameWrapper{
+fun String.toProductNameWrapper(): ProductNameWrapper {
     return ProductNameWrapper(this)
 }
 

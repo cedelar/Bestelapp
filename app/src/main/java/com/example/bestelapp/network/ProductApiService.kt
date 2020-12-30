@@ -1,9 +1,5 @@
 package com.example.bestelapp.network
 
-import android.content.Context
-import android.net.ConnectivityManager
-import android.widget.Toast
-import androidx.core.content.ContextCompat.getSystemService
 import com.example.bestelapp.data.datawrapper.DataWrapper
 import com.example.bestelapp.data.datawrapper.ServerResponse
 import com.example.bestelapp.data.product.NetworkProduct
@@ -17,7 +13,6 @@ import retrofit2.http.GET
 import retrofit2.http.Headers
 import retrofit2.http.POST
 
-
 private const val BASE_URL = "https://olt-bestelapp.herokuapp.com/"
 
 private val moshi = Moshi.Builder()
@@ -29,7 +24,7 @@ private val retrofit = Retrofit.Builder()
     .baseUrl(BASE_URL)
     .build()
 
-interface ProductApiService{
+interface ProductApiService {
     @GET("artikelen")
     fun getProducts(): Call<List<NetworkProduct>>
 
@@ -38,8 +33,8 @@ interface ProductApiService{
     fun sendOrder(@Body data: DataWrapper): Call<ServerResponse>
 }
 
-object ProductApi{
-    val retrofitService: ProductApiService by lazy{
+object ProductApi {
+    val retrofitService: ProductApiService by lazy {
         retrofit.create(ProductApiService::class.java)
     }
 }

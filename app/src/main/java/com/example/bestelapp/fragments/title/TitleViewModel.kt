@@ -5,45 +5,51 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
-import com.example.bestelapp.data.product.ProductDatabaseDao
 import com.example.bestelapp.data.qr.QrDatabaseDao
 
-class TitleViewModel(val database: QrDatabaseDao, application: Application): AndroidViewModel(application) {
+class TitleViewModel(database: QrDatabaseDao, application: Application) :
+    AndroidViewModel(application) {
 
-    //Navigation
+    // Value init
     private var _navigateToOrderlist = MutableLiveData<Boolean>()
-    private var _navigateToQr = MutableLiveData<Boolean>()
-    private var _navigateToSponsor= MutableLiveData<Boolean>()
-
     val navigateToOrderlist: LiveData<Boolean>
         get() = _navigateToOrderlist
+
+    private var _navigateToQr = MutableLiveData<Boolean>()
     val navigateToQr: LiveData<Boolean>
         get() = _navigateToQr
+
+    private var _navigateToSponsor = MutableLiveData<Boolean>()
     val navigateToSponsor: LiveData<Boolean>
         get() = _navigateToSponsor
 
     val qrInDatabase = database.getQr()
-    val orderButtonVisible = Transformations.map(database.getQrCount()){
+    val orderButtonVisible: LiveData<Boolean> = Transformations.map(database.getQrCount()) {
         it == 1
     }
 
-    fun onOrderClicked(){
+    // Buttonhandlers
+    fun onOrderClicked() {
         _navigateToOrderlist.value = true
     }
-    fun onQrClicked(){
+
+    fun onQrClicked() {
         _navigateToQr.value = true
     }
-    fun onSponsorClicked(){
+
+    fun onSponsorClicked() {
         _navigateToSponsor.value = true
     }
 
-    fun doneNavigating(){
+    // Livedataupdaters
+    fun doneNavigating() {
         _navigateToOrderlist.value = false
         _navigateToQr.value = false
         _navigateToSponsor.value = false
     }
 
-    fun getTitle(): String{
+    // Processing
+    fun getTitle(): String {
         return "OLT Bestelapp"
     }
 }

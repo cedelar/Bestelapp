@@ -4,13 +4,12 @@ import android.widget.TextView
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 
-
 @BindingAdapter("qrInfo")
-fun TextView.setInfo(item: LiveData<Int>?){
+fun TextView.setInfo(item: LiveData<Int>?) {
     item?.let {
-        if(item.value.toString() == "null"){
+        if (item.value.toString() == "null") {
             "Gelieve uw QR code te scannen".also { text = it }
-        }else{
+        } else {
             ("Tafel " + item.value.toString()).also { text = it }
         }
     }

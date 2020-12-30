@@ -5,7 +5,6 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
-
 @Database(entities = [Qr::class], version = 1, exportSchema = false)
 abstract class QrDatabase : RoomDatabase() {
     abstract val qrDatabaseDao: QrDatabaseDao

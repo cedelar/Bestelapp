@@ -9,8 +9,8 @@ import com.example.bestelapp.data.product.ModelProduct
 import com.example.bestelapp.databinding.ListitemOrderlistProductBinding
 import timber.log.Timber
 
-class ProductAdapter(val clickListener: ProductItemListener) : ListAdapter<ModelProduct,
-        ProductAdapter.ViewHolder>(ProductDiffCallback()) {
+class ProductAdapter(private val clickListener: ProductItemListener) : ListAdapter<ModelProduct,
+    ProductAdapter.ViewHolder>(ProductDiffCallback()) {
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = getItem(position)
@@ -21,8 +21,8 @@ class ProductAdapter(val clickListener: ProductItemListener) : ListAdapter<Model
         return ViewHolder.from(parent)
     }
 
-    class ViewHolder private constructor(val binding: ListitemOrderlistProductBinding)
-        : RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder private constructor(val binding: ListitemOrderlistProductBinding) :
+        RecyclerView.ViewHolder(binding.root) {
 
         fun bind(clickListener: ProductItemListener, item: ModelProduct) {
             binding.product = item
@@ -52,8 +52,10 @@ class ProductDiffCallback : DiffUtil.ItemCallback<ModelProduct>() {
     }
 }
 
-class ProductItemListener(val clickUpListener: (productName: String) -> Unit,
-                            val clickDownListener: (productName: String) -> Unit){
+class ProductItemListener(
+    val clickUpListener: (productName: String) -> Unit,
+    val clickDownListener: (productName: String) -> Unit
+) {
     fun onUpClick(modelProduct: ModelProduct) = clickUpListener(modelProduct.name)
     fun onDownClick(modelProduct: ModelProduct) = clickDownListener(modelProduct.name)
 }

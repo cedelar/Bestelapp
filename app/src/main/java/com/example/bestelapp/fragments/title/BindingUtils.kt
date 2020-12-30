@@ -6,11 +6,11 @@ import androidx.lifecycle.LiveData
 import com.example.bestelapp.data.qr.Qr
 
 @BindingAdapter("titleTable")
-fun TextView.setTable(item: LiveData<Qr>?){
+fun TextView.setTable(item: LiveData<Qr>?) {
     item?.let {
-        if(item.value == null){
+        if (item.value == null) {
             "Gelieve je QR code te scannen".also { text = it }
-        }else{
+        } else {
             ("Tafel " + item.value!!.tableNumber.toString()).also { text = it }
         }
     }

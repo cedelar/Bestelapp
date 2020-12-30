@@ -38,10 +38,11 @@
 
         <TextView
             android:id="@+id/tv_orderlist_product_productname"
+            android:textStyle="bold"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/margin_SMALL"
-            android:layout_marginBottom="8dp"
+            android:layout_marginBottom="@dimen/margin_SMALL"
             app:layout_constraintBottom_toTopOf="@+id/tv_orderlist_product_productdescription"
             app:layout_constraintEnd_toStartOf="@+id/btn_orderlist_product_upbutton"
             app:layout_constraintStart_toEndOf="@+id/gl_orderlist_product_productimage"
@@ -51,6 +52,7 @@
 
         <TextView
             android:id="@+id/tv_orderlist_product_productdescription"
+            android:textStyle="italic"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintBottom_toTopOf="@+id/tv_orderlist_product_productprice"
@@ -76,7 +78,7 @@
             android:id="@+id/tv_orderlist_product_amount"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
+            android:layout_marginEnd="@dimen/margin_SMALL"
             android:background="@drawable/border"
             android:text="@string/listitem_orderlist_defaultamount"
             android:textAlignment="center"
@@ -88,10 +90,8 @@
 
         <Button
             android:id="@+id/btn_orderlist_product_upbutton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             android:text="@string/listitem_orderlist_upbutton"
+            style="@style/ListButton"
             android:onClick="@{() -> clickListener.onUpClick(product)}"
             app:layout_constraintBottom_toTopOf="@+id/tv_orderlist_product_amount"
             app:layout_constraintEnd_toEndOf="parent"
@@ -100,10 +100,8 @@
 
         <Button
             android:id="@+id/btn_orderlist_product_downbutton"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="8dp"
             android:text="@string/listitem_orderlist_downbutton"
+            style="@style/ListButton"
             android:onClick="@{() -> clickListener.onDownClick(product)}"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

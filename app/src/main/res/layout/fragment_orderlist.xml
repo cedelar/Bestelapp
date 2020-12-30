@@ -29,15 +29,10 @@
 
         <Button
             android:id="@+id/btn_orderlist_order"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/margin_NORMAL"
-            android:layout_marginTop="@dimen/margin_SMALL"
-            android:layout_marginEnd="@dimen/margin_NORMAL"
-            android:layout_marginBottom="@dimen/margin_SMALL"
             android:enabled="@{orderListViewModel.confirmButtonVisible}"
             android:onClick="@{() -> orderListViewModel.onConfirmClicked()}"
             android:text="@string/orderlist_orderbtn"
+            style="@style/BottomButton"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

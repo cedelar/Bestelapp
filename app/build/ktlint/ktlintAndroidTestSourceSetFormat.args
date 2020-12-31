@@ -1,0 +1,5 @@
+--reporter=plain
+--color
+--reporter=plain,output=D:\School_Toeg_Inf\Sem_3\NA1_Android\bestelapp\Bestelapp\app\build\reports\ktlint\ktlintAndroidTestSourceSetFormat\ktlintAndroidTestSourceSetFormat.txt
+-F
+"src\\androidTest\\java\\com\\example\\bestelapp\\fragments\\confirmation\\ConfirmationViewModelTest.kt"

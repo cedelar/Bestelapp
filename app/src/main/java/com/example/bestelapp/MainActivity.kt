@@ -2,7 +2,6 @@ package com.example.bestelapp
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.bestelapp.data.product.ModelProduct
 import timber.log.Timber
 
 /**

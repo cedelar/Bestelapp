@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+                                                       
+                                                   
+
+    
+
+                 
+                                
+                                                                                   
+
+                 
+                          
+                                                                     
+
+           
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" android:tag="layout/listitem_orderlist_product_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+        <ImageView
+            android:id="@+id/gl_orderlist_product_productimage"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_SMALL"
+            android:layout_marginTop="@dimen/margin_SMALL"
+            android:layout_marginBottom="@dimen/margin_SMALL"
+            android:contentDescription="@string/listitem_orderlist_imagedesc"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="@fraction/frac_icon_left"
+            android:tag="binding_1"      
+            tools:srcCompat="@drawable/ic_android" />
+
+        <TextView
+            android:id="@+id/tv_orderlist_product_productname"
+            android:textStyle="bold"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_SMALL"
+            android:layout_marginBottom="@dimen/margin_SMALL"
+            app:layout_constraintBottom_toTopOf="@+id/tv_orderlist_product_productdescription"
+            app:layout_constraintEnd_toStartOf="@+id/btn_orderlist_product_upbutton"
+            app:layout_constraintStart_toEndOf="@+id/gl_orderlist_product_productimage"
+            app:layout_constraintTop_toTopOf="parent"
+            android:tag="binding_2"     
+            tools:text="Bier" />
+
+        <TextView
+            android:id="@+id/tv_orderlist_product_productdescription"
+            android:textStyle="italic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/tv_orderlist_product_productprice"
+            app:layout_constraintEnd_toStartOf="@+id/tv_orderlist_product_amount"
+            app:layout_constraintStart_toEndOf="@+id/gl_orderlist_product_productimage"
+            app:layout_constraintTop_toBottomOf="@+id/tv_orderlist_product_productname"
+            android:tag="binding_3"            
+            tools:text="Een lekkere pint" />
+
+        <TextView
+            android:id="@+id/tv_orderlist_product_productprice"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/margin_SMALL"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btn_orderlist_product_downbutton"
+            app:layout_constraintStart_toEndOf="@+id/gl_orderlist_product_productimage"
+            app:layout_constraintTop_toBottomOf="@+id/tv_orderlist_product_productdescription"
+            android:tag="binding_4"      
+            tools:text="2 bonnen" />
+
+        <TextView
+            android:id="@+id/tv_orderlist_product_amount"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="@dimen/margin_SMALL"
+            android:background="@drawable/border"
+            android:text="@string/listitem_orderlist_defaultamount"
+            android:textAlignment="center"
+            android:tag="binding_5"       
+            app:layout_constraintBottom_toTopOf="@+id/btn_orderlist_product_downbutton"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_orderlist_product_upbutton"
+            app:layout_constraintWidth_percent="@fraction/frac_button_right" />
+
+        <Button
+            android:id="@+id/btn_orderlist_product_upbutton"
+            android:text="@string/listitem_orderlist_upbutton"
+            style="@style/ListButton"
+            android:tag="binding_6"                                    
+            app:layout_constraintBottom_toTopOf="@+id/tv_orderlist_product_amount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_percent="@fraction/frac_button_right" />
+
+        <Button
+            android:id="@+id/btn_orderlist_product_downbutton"
+            android:text="@string/listitem_orderlist_downbutton"
+            style="@style/ListButton"
+            android:tag="binding_7"                                      
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_orderlist_product_amount"
+            app:layout_constraintWidth_percent="@fraction/frac_button_right" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+         

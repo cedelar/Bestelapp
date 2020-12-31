@@ -7,7 +7,7 @@
 
         <variable
             name="orderSuccesViewModel"
-            type="com.example.bestelapp.fragments.ordersucces.OrderSuccesViewModel" />
+            type="com.example.bestelapp.fragments.ordersucces.OrdersuccesViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

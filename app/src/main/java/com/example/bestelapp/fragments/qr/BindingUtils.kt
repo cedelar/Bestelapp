@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import com.example.bestelapp.data.qr.Qr
 import com.example.bestelapp.data.qr.QrDatabaseDao
 
-
 /**
  * A [BindingAdapter] to set the message under the Qr code scanner.
  *

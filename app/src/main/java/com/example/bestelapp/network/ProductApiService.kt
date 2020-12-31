@@ -2,10 +2,7 @@ package com.example.bestelapp.network
 
 import com.example.bestelapp.data.datawrapper.DataWrapper
 import com.example.bestelapp.data.datawrapper.ServerResponse
-import com.example.bestelapp.data.product.ModelProduct
 import com.example.bestelapp.data.product.NetworkProduct
-import com.example.bestelapp.fragments.orderlist.ProductAdapter.ViewHolder
-import com.example.bestelapp.fragments.orderlist.ProductItemListener
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Call
@@ -55,9 +52,6 @@ interface ProductApiService {
 /**
  * An object with the purpose of returning a [ProductApiService] with a Moshi Json parser set to
  * the 'olt-bestelapp.herokuapp.com' server.
- *
- * @param data The [DataWrapper] object to be send to the server
- * @return A [Call] containing the [ServerResponse] that the server send.
  */
 object ProductApi {
     val retrofitService: ProductApiService by lazy {

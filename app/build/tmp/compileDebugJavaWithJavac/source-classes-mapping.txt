@@ -1,0 +1,96 @@
+com/example/bestelapp/BuildConfig.java
+ com.example.bestelapp.BuildConfig
+com/example/bestelapp/fragments/qr/QrFragmentDirections.java
+ com.example.bestelapp.fragments.qr.QrFragmentDirections
+androidx/databinding/DataBinderMapperImpl.java
+ androidx.databinding.DataBinderMapperImpl
+com/example/bestelapp/fragments/ordersucces/OrdersuccesFragmentArgs.java
+ com.example.bestelapp.fragments.ordersucces.OrdersuccesFragmentArgs
+ com.example.bestelapp.fragments.ordersucces.OrdersuccesFragmentArgs$1
+ com.example.bestelapp.fragments.ordersucces.OrdersuccesFragmentArgs$Builder
+androidx/databinding/library/baseAdapters/BR.java
+ androidx.databinding.library.baseAdapters.BR
+com/example/bestelapp/fragments/confirmation/ConfirmationFragmentArgs.java
+ com.example.bestelapp.fragments.confirmation.ConfirmationFragmentArgs
+ com.example.bestelapp.fragments.confirmation.ConfirmationFragmentArgs$1
+ com.example.bestelapp.fragments.confirmation.ConfirmationFragmentArgs$Builder
+com/example/bestelapp/databinding/FragmentSponsorBindingImpl.java
+ com.example.bestelapp.databinding.FragmentSponsorBindingImpl
+com/example/bestelapp/data/product/ProductDatabaseDao_Impl.java
+ com.example.bestelapp.data.product.ProductDatabaseDao_Impl
+ com.example.bestelapp.data.product.ProductDatabaseDao_Impl$1
+ com.example.bestelapp.data.product.ProductDatabaseDao_Impl$2
+ com.example.bestelapp.data.product.ProductDatabaseDao_Impl$3
+ com.example.bestelapp.data.product.ProductDatabaseDao_Impl$4
+ com.example.bestelapp.data.product.ProductDatabaseDao_Impl$5
+com/example/bestelapp/databinding/FragmentSponsorBinding.java
+ com.example.bestelapp.databinding.FragmentSponsorBinding
+com/example/bestelapp/data/product/ProductDatabase_Impl.java
+ com.example.bestelapp.data.product.ProductDatabase_Impl
+ com.example.bestelapp.data.product.ProductDatabase_Impl$1
+com/example/bestelapp/data/qr/QrDatabaseDao_Impl.java
+ com.example.bestelapp.data.qr.QrDatabaseDao_Impl
+ com.example.bestelapp.data.qr.QrDatabaseDao_Impl$1
+ com.example.bestelapp.data.qr.QrDatabaseDao_Impl$2
+ com.example.bestelapp.data.qr.QrDatabaseDao_Impl$3
+ com.example.bestelapp.data.qr.QrDatabaseDao_Impl$4
+com/example/bestelapp/fragments/orderlist/OrderlistFragmentDirections.java
+ com.example.bestelapp.fragments.orderlist.OrderlistFragmentDirections
+ com.example.bestelapp.fragments.orderlist.OrderlistFragmentDirections$1
+ com.example.bestelapp.fragments.orderlist.OrderlistFragmentDirections$ActionOrderlistFragmentToConfirmationFragment
+com/example/bestelapp/databinding/FragmentOrdersuccesBindingImpl.java
+ com.example.bestelapp.databinding.FragmentOrdersuccesBindingImpl
+com/example/bestelapp/databinding/ListitemOrderlistProductBindingImpl.java
+ com.example.bestelapp.databinding.ListitemOrderlistProductBindingImpl
+com/example/bestelapp/fragments/ordersucces/OrdersuccesFragmentDirections.java
+ com.example.bestelapp.fragments.ordersucces.OrdersuccesFragmentDirections
+com/example/bestelapp/databinding/FragmentOrderlistBinding.java
+ com.example.bestelapp.databinding.FragmentOrderlistBinding
+com/example/bestelapp/fragments/sponsor/SponsorFragmentDirections.java
+ com.example.bestelapp.fragments.sponsor.SponsorFragmentDirections
+com/example/bestelapp/databinding/FragmentConfirmationBindingImpl.java
+ com.example.bestelapp.databinding.FragmentConfirmationBindingImpl
+com/example/bestelapp/DataBinderMapperImpl.java
+ com.example.bestelapp.DataBinderMapperImpl
+ com.example.bestelapp.DataBinderMapperImpl$InnerBrLookup
+ com.example.bestelapp.DataBinderMapperImpl$InnerLayoutIdLookup
+com/example/bestelapp/DataBindingTriggerClass.java
+ com.example.bestelapp.DataBindingTriggerClass
+com/example/bestelapp/databinding/FragmentQrBinding.java
+ com.example.bestelapp.databinding.FragmentQrBinding
+com/example/bestelapp/databinding/FragmentConfirmationBinding.java
+ com.example.bestelapp.databinding.FragmentConfirmationBinding
+com/example/bestelapp/databinding/FragmentQrBindingImpl.java
+ com.example.bestelapp.databinding.FragmentQrBindingImpl
+com/example/bestelapp/databinding/FragmentOrdersuccesBinding.java
+ com.example.bestelapp.databinding.FragmentOrdersuccesBinding
+com/example/bestelapp/databinding/ListitemOrderlistProductBinding.java
+ com.example.bestelapp.databinding.ListitemOrderlistProductBinding
+com/example/bestelapp/databinding/FragmentTitleBindingImpl.java
+ com.example.bestelapp.databinding.FragmentTitleBindingImpl
+com/example/bestelapp/databinding/FragmentTitleBinding.java
+ com.example.bestelapp.databinding.FragmentTitleBinding
+com/example/bestelapp/fragments/confirmation/ConfirmationFragmentDirections.java
+ com.example.bestelapp.fragments.confirmation.ConfirmationFragmentDirections
+ com.example.bestelapp.fragments.confirmation.ConfirmationFragmentDirections$1
+ com.example.bestelapp.fragments.confirmation.ConfirmationFragmentDirections$ActionConfirmationFragmentToOrdersuccesFragment
+com/example/bestelapp/BR.java
+ com.example.bestelapp.BR
+com/example/bestelapp/generated/callback/OnClickListener.java
+ com.example.bestelapp.generated.callback.OnClickListener
+ com.example.bestelapp.generated.callback.OnClickListener$Listener
+com/example/bestelapp/fragments/title/TitleFragmentDirections.java
+ com.example.bestelapp.fragments.title.TitleFragmentDirections
+ com.example.bestelapp.fragments.title.TitleFragmentDirections$1
+ com.example.bestelapp.fragments.title.TitleFragmentDirections$ActionTitleFragmentToOrderlistFragment
+com/example/bestelapp/data/qr/QrDatabase_Impl.java
+ com.example.bestelapp.data.qr.QrDatabase_Impl
+ com.example.bestelapp.data.qr.QrDatabase_Impl$1
+com/example/bestelapp/fragments/orderlist/OrderlistFragmentArgs.java
+ com.example.bestelapp.fragments.orderlist.OrderlistFragmentArgs
+ com.example.bestelapp.fragments.orderlist.OrderlistFragmentArgs$1
+ com.example.bestelapp.fragments.orderlist.OrderlistFragmentArgs$Builder
+com/example/bestelapp/databinding/FragmentOrderlistBindingImpl.java
+ com.example.bestelapp.databinding.FragmentOrderlistBindingImpl
+androidx/databinding/DataBindingComponent.java
+ androidx.databinding.DataBindingComponent

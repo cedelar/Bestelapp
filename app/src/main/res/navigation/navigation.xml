@@ -64,7 +64,7 @@
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />/>
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <argument
             android:name="table"
             app:argType="integer" />
@@ -74,7 +74,7 @@
     </fragment>
     <fragment
         android:id="@+id/ordersuccesFragment"
-        android:name="com.example.bestelapp.fragments.ordersucces.OrderSuccesFragment"
+        android:name="com.example.bestelapp.fragments.ordersucces.OrdersuccesFragment"
         android:label="OrdersuccesFragment"
         tools:layout="@layout/fragment_ordersucces">
         <action
@@ -85,7 +85,7 @@
             app:enterAnim="@android:anim/slide_in_left"
             app:exitAnim="@android:anim/slide_out_right"
             app:popEnterAnim="@anim/nav_default_pop_enter_anim"
-            app:popExitAnim="@anim/nav_default_pop_exit_anim" />/>
+            app:popExitAnim="@anim/nav_default_pop_exit_anim" />
         <argument
             android:name="message"
             app:argType="string" />

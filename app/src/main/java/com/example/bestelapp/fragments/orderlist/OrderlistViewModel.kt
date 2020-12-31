@@ -6,7 +6,11 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.bestelapp.data.datawrapper.Order
-import com.example.bestelapp.data.product.*
+import com.example.bestelapp.data.product.ModelProduct
+import com.example.bestelapp.data.product.ProductDatabase
+import com.example.bestelapp.data.product.decrementByName
+import com.example.bestelapp.data.product.incrementByName
+import com.example.bestelapp.data.product.isAmountPlaced
 import com.example.bestelapp.repository.ProductRepository
 import kotlinx.coroutines.launch
 

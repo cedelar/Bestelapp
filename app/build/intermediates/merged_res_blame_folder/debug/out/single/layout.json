@@ -1,0 +1,30 @@
+[
+    {
+        "merged": "D:\\School_Toeg_Inf\\Sem_3\\NA1_Android\\bestelapp\\Bestelapp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_ordersucces.xml",
+        "source": "D:\\School_Toeg_Inf\\Sem_3\\NA1_Android\\bestelapp\\Bestelapp\\app\\src\\main\\res\\layout\\fragment_ordersucces.xml"
+    },
+    {
+        "merged": "D:\\School_Toeg_Inf\\Sem_3\\NA1_Android\\bestelapp\\Bestelapp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_confirmation.xml",
+        "source": "D:\\School_Toeg_Inf\\Sem_3\\NA1_Android\\bestelapp\\Bestelapp\\app\\src\\main\\res\\layout\\fragment_confirmation.xml"
+    },
+    {
+        "merged": "D:\\School_Toeg_Inf\\Sem_3\\NA1_Android\\bestelapp\\Bestelapp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_title.xml",
+        "source": "D:\\School_Toeg_Inf\\Sem_3\\NA1_Android\\bestelapp\\Bestelapp\\app\\src\\main\\res\\layout\\fragment_title.xml"
+    },
+    {
+        "merged": "D:\\School_Toeg_Inf\\Sem_3\\NA1_Android\\bestelapp\\Bestelapp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_qr.xml",
+        "source": "D:\\School_Toeg_Inf\\Sem_3\\NA1_Android\\bestelapp\\Bestelapp\\app\\src\\main\\res\\layout\\fragment_qr.xml"
+    },
+    {
+        "merged": "D:\\School_Toeg_Inf\\Sem_3\\NA1_Android\\bestelapp\\Bestelapp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_orderlist.xml",
+        "source": "D:\\School_Toeg_Inf\\Sem_3\\NA1_Android\\bestelapp\\Bestelapp\\app\\src\\main\\res\\layout\\fragment_orderlist.xml"
+    },
+    {
+        "merged": "D:\\School_Toeg_Inf\\Sem_3\\NA1_Android\\bestelapp\\Bestelapp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\fragment_sponsor.xml",
+        "source": "D:\\School_Toeg_Inf\\Sem_3\\NA1_Android\\bestelapp\\Bestelapp\\app\\src\\main\\res\\layout\\fragment_sponsor.xml"
+    },
+    {
+        "merged": "D:\\School_Toeg_Inf\\Sem_3\\NA1_Android\\bestelapp\\Bestelapp\\app\\build\\intermediates\\incremental\\mergeDebugResources\\stripped.dir\\layout\\listitem_orderlist_product.xml",
+        "source": "D:\\School_Toeg_Inf\\Sem_3\\NA1_Android\\bestelapp\\Bestelapp\\app\\src\\main\\res\\layout\\listitem_orderlist_product.xml"
+    }
+]

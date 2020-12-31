@@ -1,7 +1,12 @@
 package com.example.bestelapp.data.product
 
 import androidx.lifecycle.LiveData
-import androidx.room.*
+import androidx.room.Dao
+import androidx.room.Insert
+import androidx.room.OnConflictStrategy
+import androidx.room.Query
+import androidx.room.RoomDatabase
+import androidx.room.Update
 
 /**
  * An Interface that defines the [Dao] for the [ProductDatabase]
@@ -44,7 +49,6 @@ interface ProductDatabaseDao {
      */
     @Query("SELECT * FROM product_table ORDER BY product_category")
     fun getAllProducts(): LiveData<List<DatabaseProduct>>
-
 
     /**
      * Function used to insert multiple [DatabaseProduct]s into the database at once.

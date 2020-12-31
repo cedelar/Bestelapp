@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                       
+                                                   
+
+    
+
+                 
+                                 
+                                                                          
+           
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" android:tag="layout/fragment_title_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+        <TextView
+            android:id="@+id/tv_title_welcomemessage"
+            style="@style/Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/title_welcomemsg"
+            app:layout_constraintBottom_toTopOf="@+id/tv_title_tablenumber"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/gl_title_top" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_title_top"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="@fraction/frac_banner_top" />
+
+        <ImageView
+            android:id="@+id/iv_title_banner"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_NORMAL"
+            android:layout_marginTop="@dimen/margin_NORMAL"
+            android:layout_marginEnd="@dimen/margin_NORMAL"
+            android:layout_marginBottom="@dimen/margin_XL"
+            android:contentDescription="@string/title_bannerdesc"
+            app:layout_constraintBottom_toTopOf="@+id/gl_title_top"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/banner" />
+
+        <Button
+            android:id="@+id/btn_title_order"
+            style="@style/TitleButton"
+            android:tag="binding_1"                               
+                                                                      
+            android:text="@string/orderlist_orderbtn"
+            app:layout_constraintBottom_toTopOf="@+id/btn_title_qr"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/gl_title_bottom" />
+
+        <Button
+            android:id="@+id/btn_title_qr"
+            style="@style/TitleButton"
+            android:tag="binding_2"                                
+            android:text="@string/title_qrbtn"
+            app:layout_constraintBottom_toTopOf="@+id/btn_title_sponsor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_title_order" />
+
+        <Button
+            android:id="@+id/btn_title_sponsor"
+            style="@style/TitleButton"
+            android:tag="binding_3"                                     
+            android:text="@string/title_sponsorbtn"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btn_title_qr" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/gl_title_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="@fraction/frac_buttonchain_bottom" />
+
+        <TextView
+            android:id="@+id/tv_title_tablenumber"
+            style="@style/Subtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintBottom_toTopOf="@+id/gl_title_bottom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title_welcomemessage"
+            android:tag="binding_4"                         />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+         

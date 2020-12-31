@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+                                                       
+                                                   
+
+    
+
+                 
+                                        
+                                                                                        
+           
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" android:tag="layout/fragment_confirmation_0" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:app="http://schemas.android.com/apk/res-auto" xmlns:tools="http://schemas.android.com/tools">
+
+        <Button
+            android:id="@+id/btn_confirmation_confirm"
+            android:tag="binding_1"                                         
+            android:text="@string/confirmation_confirmbtn"
+            style="@style/BottomButton"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <TextView
+            android:id="@+id/tv_confirmation_totalamount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_NORMAL"
+            android:layout_marginEnd="@dimen/margin_NORMAL"
+            android:layout_marginBottom="@dimen/margin_NORMAL"
+            style="@style/Subtitle"
+            android:tag="binding_2"                         
+            app:layout_constraintBottom_toTopOf="@+id/btn_confirmation_confirm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <ScrollView
+            android:id="@+id/sc_confirmation"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginStart="@dimen/margin_NORMAL"
+            android:layout_marginTop="@dimen/margin_NORMAL"
+            android:layout_marginEnd="@dimen/margin_NORMAL"
+            android:layout_marginBottom="@dimen/margin_NORMAL"
+            app:layout_constraintBottom_toTopOf="@+id/tv_confirmation_totalamount"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/tv_confirmation_products"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:tag="binding_3"                            
+                />
+        </ScrollView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+         

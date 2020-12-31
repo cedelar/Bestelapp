@@ -9,9 +9,14 @@ import com.bumptech.glide.request.RequestOptions
 import com.example.bestelapp.R
 import com.example.bestelapp.data.product.ModelProduct
 
+/**
+ * A [BindingAdapter] to set the picture of the displayed Product.
+ *
+ * @param item The used [ModelProduct]
+ * @see [ModelProduct] [OrderlistFragment] [OrderlistViewModel]
+ */
 @BindingAdapter("productImage")
 fun ImageView.setProductImage(item: ModelProduct?) {
-
     item?.pictureLink?.let {
         val imgUri = item.pictureLink.toUri().buildUpon().scheme("https").build()
         Glide.with(context)
@@ -25,6 +30,12 @@ fun ImageView.setProductImage(item: ModelProduct?) {
     }
 }
 
+/**
+ * A [BindingAdapter] to set the name of the displayed Product.
+ *
+ * @param item The used [ModelProduct]
+ * @see [ModelProduct] [OrderlistFragment] [OrderlistViewModel]
+ */
 @BindingAdapter("productName")
 fun TextView.setProductName(item: ModelProduct?) {
     item?.let {
@@ -32,6 +43,12 @@ fun TextView.setProductName(item: ModelProduct?) {
     }
 }
 
+/**
+ * A [BindingAdapter] to set the price of the displayed Product.
+ *
+ * @param item The used [ModelProduct]
+ * @see [ModelProduct] [OrderlistFragment] [OrderlistViewModel]
+ */
 @BindingAdapter("productPrice")
 fun TextView.setProductPrice(item: ModelProduct?) {
     item?.let {
@@ -39,6 +56,12 @@ fun TextView.setProductPrice(item: ModelProduct?) {
     }
 }
 
+/**
+ * A [BindingAdapter] to set the description of the displayed Product.
+ *
+ * @param item The used [ModelProduct]
+ * @see [ModelProduct] [OrderlistFragment] [OrderlistViewModel]
+ */
 @BindingAdapter("productDescription")
 fun TextView.setProductDescription(item: ModelProduct?) {
     item?.let {
@@ -46,6 +69,12 @@ fun TextView.setProductDescription(item: ModelProduct?) {
     }
 }
 
+/**
+ * A [BindingAdapter] to set the amount of the displayed Product.
+ *
+ * @param item The used [ModelProduct]
+ * @see [ModelProduct] [OrderlistFragment] [OrderlistViewModel]
+ */
 @BindingAdapter("productAmount")
 fun TextView.setProductAmount(item: ModelProduct?) {
     item?.let {

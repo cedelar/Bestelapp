@@ -3,8 +3,13 @@ package com.example.bestelapp.fragments.orderlist
 import android.app.Application
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import kotlin.Suppress
 
+/**
+ * The Factory class for the [OrderlistViewModel]
+ *
+ * @author Cedric Delaruelle
+ * @see [OrderlistFragment]
+ */
 class OrderlistViewModelFactory(
     private val table: Int,
     private val application: Application

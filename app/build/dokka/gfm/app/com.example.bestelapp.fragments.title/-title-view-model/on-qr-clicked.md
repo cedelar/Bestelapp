@@ -6,6 +6,16 @@
 [androidJvm]  
 Content  
 fun [onQrClicked](on-qr-clicked.md)()  
+More info  
+
+
+Function to be called when the 'Qr' button is clicked.
+
+
+
+Triggers navigation
+
+  
 
 
 

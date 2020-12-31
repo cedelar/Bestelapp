@@ -6,6 +6,12 @@
 [androidJvm]  
 Content  
 fun [increment](increment.md)()  
+More info  
+
+
+A function to increase the amount field of the [ModelProduct](index.md) by 1
+
+  
 
 
 

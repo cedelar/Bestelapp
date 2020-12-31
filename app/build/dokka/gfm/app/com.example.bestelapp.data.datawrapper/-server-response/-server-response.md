@@ -6,6 +6,12 @@
 [androidJvm]  
 Content  
 fun [ServerResponse](-server-response.md)(@Json(name = "status")status: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html), @Json(name = "reason")reason: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html))  
+More info  
+
+
+Creates a [ServerResponse](index.md).
+
+  
 
 
 

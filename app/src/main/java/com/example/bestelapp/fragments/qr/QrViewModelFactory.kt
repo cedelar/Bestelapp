@@ -5,6 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.bestelapp.data.qr.QrDatabaseDao
 
+/**
+ * The Factory class for the [QrViewModel]
+ *
+ * @author Cedric Delaruelle
+ * @see [QrFragment]
+ */
 class QrViewModelFactory(
     private val dataSource: QrDatabaseDao,
     private val application: Application

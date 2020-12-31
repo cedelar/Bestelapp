@@ -21,6 +21,12 @@ import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.single.PermissionListener
 import me.dm7.barcodescanner.zxing.ZXingScannerView
 
+/**
+ * The [Fragment] class for the [QrFragment]
+ *
+ * @author Cedric Delaruelle
+ * @see [QrViewModel]
+ */
 class QrFragment : Fragment() {
 
     private lateinit var qrScanner: ZXingScannerView

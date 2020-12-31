@@ -6,6 +6,15 @@
 [androidJvm]  
 Content  
 val [category](category.md): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)  
+More info  
+
+
+#### Author  
+
+
+Cedric Delaruelle
+
+  
 
 
 

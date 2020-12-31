@@ -11,6 +11,12 @@ import androidx.navigation.fragment.findNavController
 import com.example.bestelapp.R
 import com.example.bestelapp.databinding.FragmentSponsorBinding
 
+/**
+ * The [Fragment] class for the [SponsorFragment]
+ *
+ * @author Cedric Delaruelle
+ * @see [SponsorViewModel]
+ */
 class SponsorFragment : Fragment() {
 
     override fun onCreateView(

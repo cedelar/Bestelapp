@@ -6,6 +6,12 @@
 [androidJvm]  
 Content  
 fun [decrement](decrement.md)()  
+More info  
+
+
+A function to decrease the amount field of the [ModelProduct](index.md) by 1
+
+  
 
 
 

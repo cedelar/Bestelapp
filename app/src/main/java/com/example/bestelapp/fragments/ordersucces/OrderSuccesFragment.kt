@@ -11,7 +11,13 @@ import androidx.navigation.fragment.findNavController
 import com.example.bestelapp.R
 import com.example.bestelapp.databinding.FragmentOrdersuccesBinding
 
-class OrdersuccesFragment : Fragment() {
+/**
+ * The [Fragment] class for the [OrderSuccesFragment]
+ *
+ * @author Cedric Delaruelle
+ * @see [OrderSuccesViewModel]
+ */
+class OrderSuccesFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,

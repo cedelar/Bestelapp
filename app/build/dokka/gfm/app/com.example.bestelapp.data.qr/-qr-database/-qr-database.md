@@ -6,6 +6,12 @@
 [androidJvm]  
 Content  
 fun [QrDatabase](-qr-database.md)()  
+More info  
+
+
+Creates a [QrDatabase](index.md).
+
+  
 
 
 

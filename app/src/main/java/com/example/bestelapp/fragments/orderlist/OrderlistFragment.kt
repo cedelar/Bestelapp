@@ -12,6 +12,12 @@ import com.example.bestelapp.R
 import com.example.bestelapp.databinding.FragmentOrderlistBinding
 import timber.log.Timber
 
+/**
+ * The [Fragment] class for the [OrderlistFragment]
+ *
+ * @author Cedric Delaruelle
+ * @see [OrderlistViewModel]
+ */
 class OrderlistFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,

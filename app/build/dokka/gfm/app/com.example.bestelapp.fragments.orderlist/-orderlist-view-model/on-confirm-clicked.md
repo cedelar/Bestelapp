@@ -6,6 +6,16 @@
 [androidJvm]  
 Content  
 fun [onConfirmClicked](on-confirm-clicked.md)()  
+More info  
+
+
+Function to be called when the 'Confirm' button is clicked.
+
+
+
+Triggers navigation
+
+  
 
 
 

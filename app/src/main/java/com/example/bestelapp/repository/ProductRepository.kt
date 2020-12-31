@@ -2,15 +2,18 @@ package com.example.bestelapp.repository
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.Transformations
-import com.example.bestelapp.data.product.ModelProduct
-import com.example.bestelapp.data.product.ProductDatabase
-import com.example.bestelapp.data.product.asDatabaseProduct
-import com.example.bestelapp.data.product.asModelProduct
+import com.example.bestelapp.data.product.*
 import com.example.bestelapp.network.ProductApi
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.await
 
+/**
+ * A repository class containing cashed Product data.
+ *
+ * @param database The [ProductDatabase] containing the [DatabaseProduct]s
+ * @see [ProductApi]
+ */
 class ProductRepository(private val database: ProductDatabase) {
 
     val products: LiveData<List<ModelProduct>> =
@@ -18,6 +21,11 @@ class ProductRepository(private val database: ProductDatabase) {
             it.map { it.asModelProduct() }
         }
 
+    /**
+     * A function to refresh the contents of the cashe from the server.
+     *
+     * @see [ProductApi]
+     */
     suspend fun refreshProducts() {
         withContext(Dispatchers.IO) {
             val networkProducts = ProductApi.retrofitService.getProducts().await()

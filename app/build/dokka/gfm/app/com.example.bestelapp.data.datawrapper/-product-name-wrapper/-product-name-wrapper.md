@@ -6,6 +6,12 @@
 [androidJvm]  
 Content  
 fun [ProductNameWrapper](-product-name-wrapper.md)(@Json(name = "naam")name: [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html))  
+More info  
+
+
+Creates a [ProductNameWrapper](index.md).
+
+  
 
 
 

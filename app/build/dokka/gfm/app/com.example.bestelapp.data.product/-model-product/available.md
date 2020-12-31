@@ -6,6 +6,15 @@
 [androidJvm]  
 Content  
 val [available](available.md): [Boolean](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html)  
+More info  
+
+
+#### Author  
+
+
+Cedric Delaruelle
+
+  
 
 
 

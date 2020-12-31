@@ -5,6 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.bestelapp.data.qr.QrDatabaseDao
 
+/**
+ * The Factory class for the [TitleViewModel]
+ *
+ * @author Cedric Delaruelle
+ * @see [TitleFragment]
+ */
 class TitleViewModelFactory(
     private val dataSource: QrDatabaseDao,
     private val application: Application

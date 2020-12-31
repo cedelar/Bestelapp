@@ -6,6 +6,12 @@
 [androidJvm]  
 Content  
 fun [ProductDatabase](-product-database.md)()  
+More info  
+
+
+Creates a [ProductDatabase](index.md).
+
+  
 
 
 

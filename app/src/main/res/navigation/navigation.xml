@@ -74,7 +74,7 @@
     </fragment>
     <fragment
         android:id="@+id/ordersuccesFragment"
-        android:name="com.example.bestelapp.fragments.ordersucces.OrdersuccesFragment"
+        android:name="com.example.bestelapp.fragments.ordersucces.OrderSuccesFragment"
         android:label="OrdersuccesFragment"
         tools:layout="@layout/fragment_ordersucces">
         <action

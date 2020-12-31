@@ -11,6 +11,12 @@ import androidx.navigation.fragment.findNavController
 import com.example.bestelapp.R
 import com.example.bestelapp.databinding.FragmentConfirmationBinding
 
+/**
+ * The [Fragment] class for the [ConfirmationFragment]
+ *
+ * @author Cedric Delaruelle
+ * @see [ConfirmationViewModel]
+ */
 class ConfirmationFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,

@@ -5,6 +5,12 @@ import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 
+/**
+ * The [AndroidViewModel] class for the [OrderSuccesFragment]
+ *
+ * @property message The message to be displayed
+ * @author Cedric Delaruelle
+ */
 class OrderSuccesViewModel(private val message: String, application: Application) :
     AndroidViewModel(application) {
 
@@ -14,11 +20,19 @@ class OrderSuccesViewModel(private val message: String, application: Application
         get() = _navigateToTitle
 
     // Buttonhandlers
+    /**
+     * Function to be called when the 'Back' button is clicked.
+     *
+     * Triggers navigation
+     */
     fun onBackClicked() {
         _navigateToTitle.value = true
     }
 
     // Livedataupdaters
+    /**
+     * Function to be called when navigation has occurred.
+     */
     fun doneNavigating() {
         _navigateToTitle.value = false
     }
@@ -28,6 +42,11 @@ class OrderSuccesViewModel(private val message: String, application: Application
     }
 
     // Processing
+    /**
+     * Function to build the string to be displayed in the actionbar.
+     *
+     * @return The [String] with the title
+     */
     fun getTitle(): String {
         return if (statusOk()) {
             "Succes"
@@ -36,6 +55,11 @@ class OrderSuccesViewModel(private val message: String, application: Application
         }
     }
 
+    /**
+     * Function to build the string with the infomessage to be displayed.
+     *
+     * @return The requested [String]
+     */
     fun getInfoMessage(): String {
         return if (statusOk()) {
             "Uw bestelling is succesvol ontvangen, dit wordt zodadelijk naar uw tafel gebracht. Gelieve het correcte aantal bonnen klaar te leggen!"

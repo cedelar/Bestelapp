@@ -14,6 +14,14 @@ import retrofit2.Callback
 import retrofit2.Response
 import java.lang.StringBuilder
 
+/**
+ * The [AndroidViewModel] class for the [ConfirmationFragment]
+ *
+ * @property orderArray The [Array] of [Order]s to be confirmed
+ * @property table The number of the table to be confirming the order
+ * @property control The controlnumber corresponding to the tablenumber
+ * @author Cedric Delaruelle
+ */
 class ConfirmationViewModel(
     private val orderArray: Array<Order>,
     val table: Int,
@@ -33,16 +41,32 @@ class ConfirmationViewModel(
     }
 
     // Buttonhandlers
+    /**
+     * Function to be called when the 'Next' button is clicked. Sends the confirmed order to the server via Post request.
+     *
+     * Updates the navigateToSuccesMessage [LiveData] correspondingly depending on succes/failure of the Post request
+     * and triggers navigation.
+     *
+     * @see [DataWrapper] [ProductApi] [ServerResponse]
+     */
     fun onNextClicked() {
         sendOrderToServer()
     }
 
     // Livedataupdaters
+    /**
+     * Function to be called when navigation has occurred.
+     */
     fun doneNavigating() {
         _navigateToSuccesMessage.value = ""
     }
 
     // Processing
+    /**
+     * Function to calculate the total price of the [Order]s
+     *
+     * @return The calculated total
+     */
     fun getTotalPrice(): Double {
         var total = 0.0
         for (order in orders) {
@@ -51,6 +75,11 @@ class ConfirmationViewModel(
         return total
     }
 
+    /**
+     * Function to build the string with orders to be displayed.
+     *
+     * @return The [String] with orders
+     */
     fun getFormattedOrderString(): String {
         val sb = StringBuilder()
         for (order in orders) {
@@ -60,10 +89,20 @@ class ConfirmationViewModel(
         return sb.toString()
     }
 
+    /**
+     * Function to build the string with the total price to be displayed.
+     *
+     * @return The [String] with the total price
+     */
     fun getTotalPriceString(): String {
         return "Totaal: ${getTotalPrice().toInt()} Bonnen"
     }
 
+    /**
+     * Function to build the string to be displayed in the actionbar.
+     *
+     * @return The [String] with the title
+     */
     fun getTitle(): String {
         return "Uw bestelling: Tafel $table"
     }

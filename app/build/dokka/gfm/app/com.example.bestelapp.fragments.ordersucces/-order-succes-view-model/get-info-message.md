@@ -6,6 +6,19 @@
 [androidJvm]  
 Content  
 fun [getInfoMessage](get-info-message.md)(): [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)  
+More info  
+
+
+Function to build the string with the infomessage to be displayed.
+
+
+
+#### Return  
+
+
+The requested [String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)
+
+  
 
 
 

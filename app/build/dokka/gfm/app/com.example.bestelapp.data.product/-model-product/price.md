@@ -6,6 +6,15 @@
 [androidJvm]  
 Content  
 val [price](price.md): [Double](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-double/index.html)  
+More info  
+
+
+#### Author  
+
+
+Cedric Delaruelle
+
+  
 
 
 

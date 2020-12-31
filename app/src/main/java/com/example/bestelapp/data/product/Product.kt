@@ -7,6 +7,20 @@ import androidx.room.PrimaryKey
 import com.squareup.moshi.Json
 import com.squareup.moshi.JsonClass
 
+/**
+ * A data class to represent a Product in the app
+ *
+ * @property productId The id of the product
+ * @property name The name of the product
+ * @property price The price of the product
+ * @property description The description of the product
+ * @property pictureLink The weblink to the picture of the product
+ * @property category The category of the product
+ * @property available The availability of the product
+ * @property amount The currently displayed, ordered amount
+ * @constructor Creates a [ModelProduct].
+ * @author Cedric Delaruelle
+ */
 data class ModelProduct(
     val productId: Long,
     val name: String,
@@ -35,10 +49,16 @@ data class ModelProduct(
         available = available_
     )
 
+    /**
+     * A function to increase the amount field of the [ModelProduct] by 1
+     */
     fun increment() {
         amount++
     }
 
+    /**
+     * A function to decrease the amount field of the [ModelProduct] by 1
+     */
     fun decrement() {
         if (amount > 0) {
             amount--
@@ -46,14 +66,32 @@ data class ModelProduct(
     }
 }
 
+/**
+ * An extension function to increase the amount field of a [ModelProduct] in a [List] by 1
+ *
+ * @param name The name of the required [ModelProduct]
+ * @receiver A [List] of [ModelProduct]s
+ */
 fun List<ModelProduct>.incrementByName(name: String) {
     this.find { prod -> prod.name == name }?.increment()
 }
 
+/**
+ * An extension function to decrease the amount field of a [ModelProduct] in a [List] by 1
+ *
+ * @param name The name of the required [ModelProduct]
+ * @receiver A [List] of [ModelProduct]s
+ */
 fun List<ModelProduct>.decrementByName(name: String) {
     this.find { prod -> prod.name == name }?.decrement()
 }
 
+/**
+ * An extension function to check if the amount field of at least 1 [ModelProduct] in a [List] is > 0
+ *
+ * @receiver A [List] of [ModelProduct]s
+ * @return A [Boolean]
+ */
 fun List<ModelProduct>.isAmountPlaced(): Boolean {
     for (product in this) {
         if (product.amount > 0) {
@@ -63,7 +101,23 @@ fun List<ModelProduct>.isAmountPlaced(): Boolean {
     return false
 }
 
-@Entity(tableName = "product_table", indices = arrayOf(Index(value = ["product_name"], unique = true)))
+/**
+ * An Entity data class to represent a Product in the database.
+ *
+ * @property productId The id of the product
+ * @property name The name of the product
+ * @property price The price of the product
+ * @property description The description of the product
+ * @property pictureLink The weblink to the picture of the product
+ * @property category The category of the product
+ * @property available The availability of the product
+ * @constructor Creates a [DatabaseProduct].
+ * @author Cedric Delaruelle
+ */
+@Entity(
+    tableName = "product_table",
+    indices = [Index(value = ["product_name"], unique = true)]
+)
 data class DatabaseProduct(
     @PrimaryKey(autoGenerate = true)
     @ColumnInfo(name = "product_id")
@@ -87,7 +141,6 @@ data class DatabaseProduct(
     @ColumnInfo(name = "product_availability")
     val available: Boolean = true,
 ) {
-    constructor(id2: Long, name2: String, price2: Double) : this(productId = id2, name = name2, price = price2)
     constructor(
         name_: String,
         price_: Double,
@@ -105,6 +158,12 @@ data class DatabaseProduct(
     )
 }
 
+/**
+ * An extension function to convert a [DatabaseProduct] into a [ModelProduct].
+ *
+ * @receiver A [DatabaseProduct]
+ * @return The corresponding [ModelProduct]
+ */
 fun DatabaseProduct.asModelProduct(): ModelProduct {
     return ModelProduct(
         this.productId,
@@ -119,6 +178,18 @@ fun DatabaseProduct.asModelProduct(): ModelProduct {
 
 private const val BASE_URL = "https://olt-bestelapp.herokuapp.com/"
 
+/**
+ * Moshi Json convertable data class to represent a Product in an API call.
+ *
+ * @property name The name of the product
+ * @property price The price of the product
+ * @property description The description of the product
+ * @property pictureLink The weblink to the picture of the product
+ * @property category The category of the product
+ * @property available The availability of the product
+ * @constructor Creates a [NetworkProduct].
+ * @author Cedric Delaruelle
+ */
 @JsonClass(generateAdapter = true)
 data class NetworkProduct(
     @Json(name = "naam")
@@ -135,6 +206,12 @@ data class NetworkProduct(
     val available: String
 )
 
+/**
+ * An extension function to convert a [NetworkProduct] into a [DatabaseProduct].
+ *
+ * @receiver A [NetworkProduct]
+ * @return The corresponding [DatabaseProduct]
+ */
 fun NetworkProduct.asDatabaseProduct(): DatabaseProduct {
     val availableBool: Boolean = this.available == "Ja"
     val pictureLinkRefactor: String = BASE_URL + this.pictureLink.substring(6).replace(" ", "%20")

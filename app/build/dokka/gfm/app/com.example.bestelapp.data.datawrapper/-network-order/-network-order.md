@@ -6,6 +6,12 @@
 [androidJvm]  
 Content  
 fun [NetworkOrder](-network-order.md)(@Json(name = "artikel")product: [ProductNameWrapper](../-product-name-wrapper/index.md), @Json(name = "aantal")amount: [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html), @Json(name = "opties")options: [List](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-list/index.html)<[String](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html)>)  
+More info  
+
+
+Creates a [NetworkOrder](index.md).
+
+  
 
 
 

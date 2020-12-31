@@ -5,6 +5,12 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.bestelapp.data.datawrapper.Order
 
+/**
+ * The Factory class for the [ConfirmationViewModel]
+ *
+ * @author Cedric Delaruelle
+ * @see [ConfirmationFragment]
+ */
 class ConfirmationViewModelFactory(
     private val orders: Array<Order>,
     private val table: Int,

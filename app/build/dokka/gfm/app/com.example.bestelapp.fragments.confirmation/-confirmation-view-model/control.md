@@ -6,6 +6,15 @@
 [androidJvm]  
 Content  
 val [control](control.md): [Int](https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int/index.html)  
+More info  
+
+
+#### Author  
+
+
+Cedric Delaruelle
+
+  
 
 
 

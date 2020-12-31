@@ -6,6 +6,12 @@
 [androidJvm]  
 Content  
 fun [viewUpdateExecuted](view-update-executed.md)()  
+More info  
+
+
+Function to be called when a requested viewupdate is executed.
+
+  
 
 
 

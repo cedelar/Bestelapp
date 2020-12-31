@@ -6,6 +6,12 @@
 [androidJvm]  
 Content  
 abstract fun [clear](clear.md)()  
+More info  
+
+
+Function used to clear all [DatabaseProduct](../-database-product/index.md)s.
+
+  
 
 
 

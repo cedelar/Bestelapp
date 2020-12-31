@@ -12,6 +12,12 @@ import com.example.bestelapp.R
 import com.example.bestelapp.data.qr.QrDatabase
 import com.example.bestelapp.databinding.FragmentTitleBinding
 
+/**
+ * The [Fragment] class for the [TitleFragment]
+ *
+ * @author Cedric Delaruelle
+ * @see [TitleViewModel]
+ */
 class TitleFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater,

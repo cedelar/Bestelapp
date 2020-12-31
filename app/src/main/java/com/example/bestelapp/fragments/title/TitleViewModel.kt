@@ -7,7 +7,13 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Transformations
 import com.example.bestelapp.data.qr.QrDatabaseDao
 
-class TitleViewModel(database: QrDatabaseDao, application: Application) :
+/**
+ * The [AndroidViewModel] class for the [TitleFragment]
+ *
+ * @property database A reference to the [QrDatabaseDao] to be used
+ * @author Cedric Delaruelle
+ */
+class TitleViewModel(val database: QrDatabaseDao, application: Application) :
     AndroidViewModel(application) {
 
     // Value init
@@ -29,19 +35,37 @@ class TitleViewModel(database: QrDatabaseDao, application: Application) :
     }
 
     // Buttonhandlers
+    /**
+     * Function to be called when the 'Order' button is clicked.
+     *
+     * Triggers navigation
+     */
     fun onOrderClicked() {
         _navigateToOrderlist.value = true
     }
 
+    /**
+     * Function to be called when the 'Qr' button is clicked.
+     *
+     * Triggers navigation
+     */
     fun onQrClicked() {
         _navigateToQr.value = true
     }
 
+    /**
+     * Function to be called when the 'Sponsor' button is clicked.
+     *
+     * Triggers navigation
+     */
     fun onSponsorClicked() {
         _navigateToSponsor.value = true
     }
 
     // Livedataupdaters
+    /**
+     * Function to be called when navigation has occurred.
+     */
     fun doneNavigating() {
         _navigateToOrderlist.value = false
         _navigateToQr.value = false
@@ -49,6 +73,11 @@ class TitleViewModel(database: QrDatabaseDao, application: Application) :
     }
 
     // Processing
+    /**
+     * Function to build the string to be displayed in the actionbar.
+     *
+     * @return The [String] with the title
+     */
     fun getTitle(): String {
         return "OLT Bestelapp"
     }

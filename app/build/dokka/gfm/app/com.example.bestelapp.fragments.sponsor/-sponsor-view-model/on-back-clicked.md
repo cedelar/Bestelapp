@@ -6,6 +6,16 @@
 [androidJvm]  
 Content  
 fun [onBackClicked](on-back-clicked.md)()  
+More info  
+
+
+Function to be called when the 'Back' button is clicked.
+
+
+
+Triggers navigation
+
+  
 
 
 

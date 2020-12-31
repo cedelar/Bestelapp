@@ -6,6 +6,12 @@
 [androidJvm]  
 Content  
 fun [doneNavigating](done-navigating.md)()  
+More info  
+
+
+Function to be called when navigation has occurred.
+
+  
 
 
 
